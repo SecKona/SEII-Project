@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="meinRecipe_Controller.DisplayPageController">
+   <right>
+      <Pane prefHeight="411.0" prefWidth="37.0" style="-fx-background-color: #b8bfd8;" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="1.0" layoutY="1.0" mnemonicParsing="false" onAction="#returnHome" prefHeight="35.0" prefWidth="35.0" text="Home">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Button>
+            <Button layoutX="1.0" layoutY="37.0" mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="35.0" text="Back">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Button>
+            <Button layoutX="1.0" layoutY="564.0" mnemonicParsing="false" onAction="#returnHome" prefHeight="35.0" prefWidth="35.0" text="Info">
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Button>
+         </children></Pane>
+   </right>
+   <center>
+      <Pane prefHeight="411.0" prefWidth="564.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="600.0" fitWidth="763.0" opacity="0.59">
+               <image>
+                  <Image url="@../../image/background.jpg" />
+               </image>
+            </ImageView>
+            <VBox layoutX="-1.0" prefHeight="600.0" prefWidth="763.0">
+               <children>
+                  <AnchorPane prefHeight="30.0" prefWidth="763.0">
+                     <children>
+                        <Label fx:id="recipeName" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="520.0" text="Recipe's Name">
+                           <font>
+                              <Font name="Segoe Script Bold" size="25.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#0408f2" />
+                                    <Stop color="#f50e0e" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Label>
+                        <Label fx:id="region" alignment="CENTER" layoutX="556.0" layoutY="3.0" prefHeight="50.0" prefWidth="200.0" text="Region  " textAlignment="RIGHT">
+                           <font>
+                              <Font name="Segoe Print" size="23.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0" startX="0.7959183673469388">
+                                 <stops>
+                                    <Stop color="#0408f2" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="100.0">
+                     <children>
+                        <Label prefHeight="36.0" prefWidth="128.0" text="PrepTime">
+                           <font>
+                              <Font name="Segoe Script Bold" size="20.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#0408f2" />
+                                    <Stop color="#5beb2b" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="prepTime" prefWidth="60.0" text="min">
+                           <font>
+                              <Font name="Segoe Print" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="36.0" prefWidth="200.0" text="CookTime">
+                           <font>
+                              <Font name="Segoe Script Bold" size="20.0" />
+                           </font>
+                           <padding>
+                              <Insets left="60.0" />
+                           </padding>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#0408f2" />
+                                    <Stop color="#5beb2b" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Label>
+                        <Label fx:id="cookTime" prefWidth="60.0" text="min">
+                           <font>
+                              <Font name="Segoe Print" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="37.0" prefWidth="128.0" text="ServeNum">
+                           <font>
+                              <Font name="Segoe Script Bold" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="60.0" />
+                           </HBox.margin>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#0408f2" />
+                                    <Stop color="#5beb2b" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Label>
+                        <TextField fx:id="serveNum" alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="40.0" promptText="1">
+                           <HBox.margin>
+                              <Insets left="12.0" right="10.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="3.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <AnchorPane prefHeight="200.0" prefWidth="614.0">
+                     <children>
+                        <ImageView fx:id="recipeImage" fitHeight="200.0" fitWidth="200.0" layoutX="7.0">
+                           <image>
+                              <Image url="@../../image/pasta.jpg" />
+                           </image>
+                        </ImageView>
+                        <ListView fx:id="ingredientList" layoutX="214.0" layoutY="50.0" prefHeight="200.0" prefWidth="544.0" />
+                        <Label fx:id="recipeName11" alignment="BOTTOM_LEFT" contentDisplay="CENTER" layoutX="214.0" prefHeight="50.0" prefWidth="544.0" text="Ingredients">
+                           <font>
+                              <Font name="Segoe Script Bold" size="25.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#0408f2" />
+                                    <Stop color="#f50e0e" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Label>
+                        <Button layoutX="629.0" layoutY="7.0" mnemonicParsing="false" onAction="#calculateClicked" prefHeight="32.0" prefWidth="120.0" text="Calculate">
+                           <font>
+                              <Font name="Segoe Print Bold" size="16.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="305.0" prefWidth="763.0">
+                     <children>
+                        <Button layoutX="57.0" layoutY="50.0" mnemonicParsing="false" onAction="#editRecipe" prefHeight="25.0" prefWidth="90.0" text="Edit" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe Script Bold" size="16.0" />
+                           </font>
+                        </Button>
+                        <ListView fx:id="instructionList" layoutX="214.0" layoutY="50.0" prefHeight="200.0" prefWidth="544.0" />
+                        <Label fx:id="recipeName1" alignment="BOTTOM_LEFT" contentDisplay="CENTER" layoutX="214.0" prefHeight="50.0" prefWidth="544.0" text="Instrcutions">
+                           <font>
+                              <Font name="Segoe Script Bold" size="25.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#0408f2" />
+                                    <Stop color="#f50e0e" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Label>
+                        <Button layoutX="57.0" layoutY="202.0" mnemonicParsing="false" onAction="#deleteRecipe" prefHeight="25.0" prefWidth="90.0" text="Delete" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe Script Bold" size="16.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </Pane>
+   </center>
+</BorderPane>
