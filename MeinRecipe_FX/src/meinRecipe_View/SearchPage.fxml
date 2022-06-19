@@ -120,14 +120,20 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </TableView>
-                  <Button layoutX="430.0" layoutY="60.0" mnemonicParsing="false" onAction="#viewClicked" text="View">
+                  <Button layoutX="420.0" layoutY="60.0" mnemonicParsing="false" onAction="#viewClicked" style="-fx-border-color: ff00ff; -fx-background-radius: 10; -fx-border-radius: 10;" text="View">
                      <cursor>
                         <Cursor fx:constant="HAND" />
-                     </cursor></Button>
-                  <Button layoutX="20.0" layoutY="60.0" mnemonicParsing="false" onAction="#deleteClicked" text="Delete">
+                     </cursor>
+                     <tooltip>
+                        <Tooltip text="Select a recipe in table to view more" />
+                     </tooltip></Button>
+                  <Button layoutX="20.0" layoutY="60.0" mnemonicParsing="false" onAction="#deleteClicked" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: ff00ff;" text="Delete">
                      <cursor>
                         <Cursor fx:constant="HAND" />
-                     </cursor></Button>
+                     </cursor>
+                     <tooltip>
+                        <Tooltip text="Select a recipe in table to delete" />
+                     </tooltip></Button>
                </children>
             </AnchorPane>
          </items>
@@ -136,21 +142,26 @@
    <right>
       <Pane prefHeight="411.0" prefWidth="37.0" style="-fx-background-color: #b8bfd8;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="1.0" layoutY="1.0" mnemonicParsing="false" onAction="#returnHome" prefHeight="35.0" prefWidth="35.0" text="Home">
+            <Button layoutX="1.0" layoutY="1.0" mnemonicParsing="false" onAction="#returnHome" prefHeight="35.0" prefWidth="35.0">
                <font>
                   <Font size="7.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
-            </Button>
-            <Button layoutX="1.0" layoutY="564.0" mnemonicParsing="false" onAction="#showInf" prefHeight="35.0" prefWidth="35.0" text="Info">
-               <font>
-                  <Font size="9.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0">
+                     <image>
+                        <Image url="@../../image/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Back to home page">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Tooltip>
+               </tooltip>
             </Button>
          </children>
       </Pane>

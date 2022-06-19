@@ -14,29 +14,47 @@
    <right>
       <Pane prefHeight="411.0" prefWidth="37.0" style="-fx-background-color: #b8bfd8;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="1.0" layoutY="1.0" mnemonicParsing="false" onAction="#returnHome" prefHeight="35.0" prefWidth="35.0" text="Home">
+            <Button layoutX="1.0" layoutY="1.0" maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#returnHome" prefHeight="35.0" prefWidth="35.0">
                <font>
                   <Font size="7.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0">
+                     <image>
+                        <Image url="@../../image/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Back to home page">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Tooltip>
+               </tooltip>
             </Button>
-            <Button layoutX="1.0" layoutY="37.0" mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="35.0" text="Back">
+            <Button layoutX="1.0" layoutY="36.0" maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="35.0">
                <font>
                   <Font size="7.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
-            </Button>
-            <Button layoutX="1.0" layoutY="564.0" mnemonicParsing="false" onAction="#returnHome" prefHeight="35.0" prefWidth="35.0" text="Info">
-               <font>
-                  <Font size="9.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0">
+                     <image>
+                        <Image url="@../../image/undo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Back to search page">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Tooltip>
+               </tooltip>
             </Button>
          </children></Pane>
    </right>
@@ -52,31 +70,15 @@
                <children>
                   <AnchorPane prefHeight="30.0" prefWidth="763.0">
                      <children>
-                        <Label fx:id="recipeName" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="520.0" text="Recipe's Name">
+                        <Label fx:id="recipeName" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="520.0" text="Recipe's Name" textFill="#070e9e">
                            <font>
                               <Font name="Segoe Script Bold" size="25.0" />
                            </font>
-                           <textFill>
-                              <LinearGradient endX="1.0" endY="1.0">
-                                 <stops>
-                                    <Stop color="#0408f2" />
-                                    <Stop color="#f50e0e" offset="1.0" />
-                                 </stops>
-                              </LinearGradient>
-                           </textFill>
                         </Label>
-                        <Label fx:id="region" alignment="CENTER" layoutX="556.0" layoutY="3.0" prefHeight="50.0" prefWidth="200.0" text="Region  " textAlignment="RIGHT">
+                        <Label fx:id="region" alignment="CENTER" layoutX="556.0" layoutY="3.0" prefHeight="50.0" prefWidth="200.0" text="Region  " textAlignment="RIGHT" textFill="#971414">
                            <font>
                               <Font name="Segoe Print" size="23.0" />
                            </font>
-                           <textFill>
-                              <LinearGradient endX="1.0" endY="1.0" startX="0.7959183673469388">
-                                 <stops>
-                                    <Stop color="#0408f2" />
-                                    <Stop color="WHITE" offset="1.0" />
-                                 </stops>
-                              </LinearGradient>
-                           </textFill>
                         </Label>
                      </children>
                   </AnchorPane>
@@ -90,7 +92,7 @@
                               <LinearGradient endX="1.0" endY="1.0">
                                  <stops>
                                     <Stop color="#0408f2" />
-                                    <Stop color="#5beb2b" offset="1.0" />
+                                    <Stop color="#6b0a0a" offset="1.0" />
                                  </stops>
                               </LinearGradient>
                            </textFill>
@@ -114,7 +116,7 @@
                               <LinearGradient endX="1.0" endY="1.0">
                                  <stops>
                                     <Stop color="#0408f2" />
-                                    <Stop color="#5beb2b" offset="1.0" />
+                                    <Stop color="#900b0b" offset="1.0" />
                                  </stops>
                               </LinearGradient>
                            </textFill>
@@ -135,7 +137,7 @@
                               <LinearGradient endX="1.0" endY="1.0">
                                  <stops>
                                     <Stop color="#0408f2" />
-                                    <Stop color="#5beb2b" offset="1.0" />
+                                    <Stop color="#9a1111" offset="1.0" />
                                  </stops>
                               </LinearGradient>
                            </textFill>
@@ -180,25 +182,31 @@
                               </LinearGradient>
                            </textFill>
                         </Label>
-                        <Button layoutX="629.0" layoutY="7.0" mnemonicParsing="false" onAction="#calculateClicked" prefHeight="32.0" prefWidth="120.0" text="Calculate">
+                        <Button layoutX="629.0" layoutY="7.0" mnemonicParsing="false" onAction="#calculateClicked" prefHeight="32.0" prefWidth="120.0" style="-fx-background-radius: 100; -fx-border-radius: 100; -fx-border-color: ff00ff;" text="Calculate" AnchorPane.bottomAnchor="202.0">
                            <font>
                               <Font name="Segoe Print Bold" size="16.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
+                           <tooltip>
+                              <Tooltip text="Input a serve number to calculate ingredient amount" />
+                           </tooltip>
                         </Button>
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="305.0" prefWidth="763.0">
                      <children>
-                        <Button layoutX="57.0" layoutY="50.0" mnemonicParsing="false" onAction="#editRecipe" prefHeight="25.0" prefWidth="90.0" text="Edit" textAlignment="CENTER">
+                        <Button layoutX="57.0" layoutY="50.0" mnemonicParsing="false" onAction="#editRecipe" prefHeight="25.0" prefWidth="90.0" style="-fx-background-radius: 10; -fx-border-color: ffb700; -fx-border-radius: 10;" text="Edit" textAlignment="CENTER">
                            <font>
                               <Font name="Segoe Script Bold" size="16.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
+                           <tooltip>
+                              <Tooltip text="Edit this recipe" />
+                           </tooltip>
                         </Button>
                         <ListView fx:id="instructionList" layoutX="214.0" layoutY="50.0" prefHeight="200.0" prefWidth="544.0">
                            <cursor>
@@ -217,13 +225,16 @@
                               </LinearGradient>
                            </textFill>
                         </Label>
-                        <Button layoutX="57.0" layoutY="202.0" mnemonicParsing="false" onAction="#deleteRecipe" prefHeight="25.0" prefWidth="90.0" text="Delete" textAlignment="CENTER">
+                        <Button layoutX="57.0" layoutY="202.0" mnemonicParsing="false" onAction="#deleteRecipe" prefHeight="25.0" prefWidth="90.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: ffb700;" text="Delete" textAlignment="CENTER">
                            <font>
                               <Font name="Segoe Script Bold" size="16.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
+                           <tooltip>
+                              <Tooltip text="Delete this recipe" />
+                           </tooltip>
                         </Button>
                      </children>
                   </AnchorPane>

@@ -219,14 +219,6 @@ public class EditPageController {
 				showAlert(Alert.AlertType.ERROR, "Error", "Update failed", "The recipe have invalid name!");
 				return;
 			}
-			DisplayPageController.setViewingRecipe(editingRecipe);
-
-			Parent recipeDisplayScene = FXMLLoader.load(getClass().getResource("/meinRecipe_View/DisplayPage.fxml"));
-			Scene mainPage = new Scene(recipeDisplayScene);
-			Stage mainWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-			mainWindow.setTitle("MeinRecipe - Display page");
-			mainWindow.setScene(mainPage);
 		} else {
 			if (DBOperator.insert(editingRecipe)) {
 				showAlert(Alert.AlertType.INFORMATION, "Info", "Save successful", "The recipe is saved");
@@ -234,14 +226,16 @@ public class EditPageController {
 				showAlert(Alert.AlertType.ERROR, "Error", "Save failed", "The recipe have invalid name!");
 				return;
 			}
-
-			Parent homePageScene = FXMLLoader.load(getClass().getResource("/meinRecipe_View/HomePage.fxml"));
-			Scene mainPage = new Scene(homePageScene);
-			Stage mainWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-			mainWindow.setTitle("MeinRecipe - Home page");
-			mainWindow.setScene(mainPage);
 		}
+
+		DisplayPageController.setViewingRecipe(editingRecipe);
+
+		Parent recipeDisplayScene = FXMLLoader.load(getClass().getResource("/meinRecipe_View/DisplayPage.fxml"));
+		Scene mainPage = new Scene(recipeDisplayScene);
+		Stage mainWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+		mainWindow.setTitle("MeinRecipe - Display page");
+		mainWindow.setScene(mainPage);
 	}
 
 	@FXML
@@ -264,9 +258,8 @@ public class EditPageController {
 			if (editingRecipe.getRecipeId() != null) {
 				DisplayPageController.setViewingRecipe(editingRecipe);
 
-				Parent recipeDisplayScene = FXMLLoader
-						.load(getClass().getResource("/meinRecipe_View/DisplayPage.fxml"));
-				Scene mainPage = new Scene(recipeDisplayScene);
+				Parent DisplayPageScene = FXMLLoader.load(getClass().getResource("/meinRecipe_View/DisplayPage.fxml"));
+				Scene mainPage = new Scene(DisplayPageScene);
 				Stage mainWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
 				mainWindow.setTitle("MeinRecipe - Display page");
@@ -280,11 +273,6 @@ public class EditPageController {
 				mainWindow.setScene(mainPage);
 			}
 		}
-	}
-
-	@FXML
-	void showInf(ActionEvent event) {
-		// need a new window (maybe)
 	}
 
 	@FXML
@@ -323,7 +311,8 @@ public class EditPageController {
 			this.recipeImage.setImage(new Image(inputImage));
 			inputImage.close();
 		} catch (IOException e) {
-			showAlert(Alert.AlertType.ERROR, "Error", "Failed to load recipe image", "Recipe image will be changed to default");
+			showAlert(Alert.AlertType.ERROR, "Error", "Failed to load recipe image",
+					"Recipe image will be changed to default");
 			return;
 		}
 	}
@@ -335,7 +324,7 @@ public class EditPageController {
 			TextFieldTableCell<Ingredient, Integer> cell = new TextFieldTableCell<Ingredient, Integer>(
 					new IntegerStringConverter());
 			cell.setOnKeyReleased(e -> {
-				if(!e.getText().matches("^[0-9]\\d*$")) {
+				if (!e.getText().matches("^[0-9]\\d*$")) {
 					showAlert(Alert.AlertType.ERROR, "Error", "Illegal input", "Please input a number!");
 					cell.cancelEdit();
 				}
@@ -360,7 +349,6 @@ public class EditPageController {
 					.setDescription(event.getNewValue());
 		});
 	}
-	
 
 	public boolean checkInput(TextField textField, String regex) {
 		if (textField.getText() == null) {
@@ -372,7 +360,6 @@ public class EditPageController {
 			return false;
 		}
 	}
-	
 
 	public boolean showAlert(AlertType alertType, String title, String headerText, String contentText) {
 		Alert a = new Alert(alertType);

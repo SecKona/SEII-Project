@@ -24,20 +24,25 @@ public class HomePageController {
     }
 
     @FXML
-    public void turnToEditRecipePage(ActionEvent event) throws IOException {
+    public void turnToEditPage(ActionEvent event) throws IOException {
 		EditPageController.setEditingRecipe(new Recipe());
 		
-    	Parent editRecipePageScene = FXMLLoader.load(getClass().getResource("/meinRecipe_View/EditPage.fxml"));
-		Scene mainPage = new Scene(editRecipePageScene);
+    	Parent editPageScene = FXMLLoader.load(getClass().getResource("/meinRecipe_View/EditPage.fxml"));
+		Scene mainPage = new Scene(editPageScene);
 		Stage mainWindow = (Stage)((Node) event.getSource()).getScene().getWindow();
 		
-		mainWindow.setTitle("MeinRecipe - Edit recipe");
+		mainWindow.setTitle("MeinRecipe - Edit page");
 		mainWindow.setScene(mainPage);
     }
 
     @FXML
-    public void showInf(ActionEvent event) {
-    	// need a new window (maybe)
+    public void showInf(ActionEvent event) throws IOException {
+    	Parent infoPageScene = FXMLLoader.load(getClass().getResource("/meinRecipe_View/InfoPage.fxml"));
+		Scene mainPage = new Scene(infoPageScene);
+		Stage mainWindow = (Stage)((Node) event.getSource()).getScene().getWindow();
+		
+		mainWindow.setTitle("MeinRecipe - Info page");
+		mainWindow.setScene(mainPage);
     }
 
 }

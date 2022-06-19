@@ -103,7 +103,7 @@ public class SearchPageController {
 			mainWindow.setScene(mainPage);
 		} else {
 			showAlert(Alert.AlertType.ERROR, "Error", "None of recipe is selected",
-					"Please select a recipe to delete!");
+					"Please select a recipe to display!");
 		}
 	}
 
@@ -115,11 +115,6 @@ public class SearchPageController {
 
 		mainWindow.setTitle("MeinRecipe - Home page");
 		mainWindow.setScene(mainPage);
-	}
-
-	@FXML
-	void showInf(ActionEvent event) {
-		// need a new window (maybe)
 	}
 
 	@FXML

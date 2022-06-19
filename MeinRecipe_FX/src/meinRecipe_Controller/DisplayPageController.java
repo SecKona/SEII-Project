@@ -63,7 +63,7 @@ public class DisplayPageController {
 
 		Stage mainWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-		mainWindow.setTitle("MeinRecipe - Edit recipe");
+		mainWindow.setTitle("MeinRecipe - Edit page");
 		mainWindow.setScene(mainPage);
 	}
 
@@ -116,11 +116,6 @@ public class DisplayPageController {
 
 		mainWindow.setTitle("MeinRecipe - Search page");
 		mainWindow.setScene(mainPage);
-	}
-
-	@FXML
-	void showInf(ActionEvent event) {
-		// need a new window (maybe)
 	}
 
 	@FXML

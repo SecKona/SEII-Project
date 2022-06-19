@@ -38,7 +38,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="285.0" layoutY="408.0" mnemonicParsing="false" onAction="#turnToEditRecipePage" prefHeight="46.0" prefWidth="195.0" style="-fx-border-color: #ffd700; -fx-background-radius: 100; -fx-border-radius: 100;" text="I'm a chef!" textAlignment="CENTER">
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="285.0" layoutY="408.0" mnemonicParsing="false" onAction="#turnToEditPage" prefHeight="46.0" prefWidth="195.0" style="-fx-border-color: #ffd700; -fx-background-radius: 100; -fx-border-radius: 100;" text="I'm a chef!" textAlignment="CENTER">
                <font>
                   <Font name="Segoe Print Bold" size="18.0" />
                </font>
@@ -61,10 +61,9 @@
                <fill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
-                        <Stop color="#ff8d12" />
-                        <Stop color="#ff8d12" offset="0.0049504950495049506" />
-                        <Stop color="#e02bd4" offset="0.9826732673267327" />
-                        <Stop color="#e02bd4" offset="1.0" />
+                        <Stop color="#d30909" />
+                        <Stop color="#d30909" offset="0.0049504950495049506" />
+                        <Stop color="#3b3bdb" offset="1.0" />
                      </stops>
                   </LinearGradient>
                </fill>
@@ -75,13 +74,26 @@
    <right>
       <Pane prefHeight="402.0" prefWidth="37.0" style="-fx-background-color: #b8bfd8;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="1.0" layoutY="564.0" mnemonicParsing="false" onAction="#showInf" prefHeight="35.0" prefWidth="35.0" text="Info">
+            <Button layoutX="1.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#showInf" prefHeight="35.0" prefWidth="35.0">
                <font>
                   <Font size="9.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="23.0">
+                     <image>
+                        <Image url="@../../image/info.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Info">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Tooltip>
+               </tooltip>
             </Button>
          </children>
       </Pane>
