@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="meinRecipe_Controller.EditPageController">
+   <center>
+      <Pane prefHeight="411.0" prefWidth="564.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="600.0" fitWidth="763.0" opacity="0.59">
+               <image>
+                  <Image url="@../../image/background.jpg" />
+               </image>
+            </ImageView>
+            <VBox layoutX="-1.0" prefHeight="600.0" prefWidth="763.0">
+               <children>
+                  <AnchorPane prefHeight="51.0" prefWidth="763.0">
+                     <children>
+                        <TextField fx:id="recipeName" alignment="TOP_CENTER" layoutX="14.0" layoutY="1.0" prefHeight="50.0" prefWidth="520.0" promptText="Recipe name">
+                           <font>
+                              <Font name="Segoe Print Bold" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </TextField>
+                        <ChoiceBox fx:id="regionChoices" layoutX="556.0" layoutY="1.0" opacity="0.67" prefHeight="50.0" prefWidth="200.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></ChoiceBox>
+                     </children>
+                  </AnchorPane>
+                  <HBox prefHeight="40.0" prefWidth="100.0">
+                     <children>
+                        <Label prefHeight="37.0" prefWidth="126.0" text="PrepTime">
+                           <font>
+                              <Font name="Segoe Script Bold" size="20.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#0408f2" />
+                                    <Stop color="#5beb2b" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="prepTime" alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="65.0" promptText="min">
+                           <HBox.margin>
+                              <Insets top="8.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </TextField>
+                        <Label prefHeight="40.0" prefWidth="200.0" text="CookTime">
+                           <font>
+                              <Font name="Segoe Script Bold" size="20.0" />
+                           </font>
+                           <padding>
+                              <Insets left="60.0" />
+                           </padding>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#0408f2" />
+                                    <Stop color="#5beb2b" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Label>
+                        <TextField fx:id="cookTime" alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="65.0" promptText="min">
+                           <HBox.margin>
+                              <Insets top="8.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </TextField>
+                        <Label prefHeight="37.0" prefWidth="128.0" text="ServeNum">
+                           <font>
+                              <Font name="Segoe Script Bold" size="20.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#0408f2" />
+                                    <Stop color="#5beb2b" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                           <HBox.margin>
+                              <Insets left="60.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="serveNum" alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="65.0">
+                           <HBox.margin>
+                              <Insets right="5.0" top="8.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="3.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="recipeImage" fitHeight="200.0" fitWidth="200.0" layoutX="7.0">
+                           <image>
+                              <Image url="@../recipeImage/default.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="recipeName11" alignment="BOTTOM_LEFT" contentDisplay="CENTER" layoutX="214.0" prefHeight="50.0" prefWidth="294.0" text="Ingredients">
+                           <font>
+                              <Font name="Segoe Script Bold" size="25.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#0408f2" />
+                                    <Stop color="#f50e0e" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Label>
+                        <Button layoutX="649.0" layoutY="7.0" mnemonicParsing="false" onAction="#clearIngredientClicked" prefHeight="40.0" prefWidth="100.0" text="Clear" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe Print Bold" size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button layoutX="57.0" layoutY="207.0" mnemonicParsing="false" onAction="#imageEditClicked" prefHeight="40.0" prefWidth="100.0" text="Image edit">
+                           <font>
+                              <Font name="Segoe Print Bold" size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <TableView fx:id="ingredientTable" layoutX="214.0" layoutY="50.0" prefHeight="200.0" prefWidth="544.0">
+                           <columns>
+                              <TableColumn fx:id="quantityCol" prefWidth="100.0" resizable="false" sortable="false" text="Quantity" />
+                              <TableColumn fx:id="ingDescriptionCol" prefWidth="444.0" resizable="false" sortable="false" text="Description" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </TableView>
+                        <Button layoutX="440.0" layoutY="7.0" mnemonicParsing="false" onAction="#addIngredientClicked" prefHeight="40.0" prefWidth="100.0" text="Add" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe Print Bold" size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button layoutX="545.0" layoutY="7.0" mnemonicParsing="false" onAction="#deleteIngredientClicked" prefHeight="40.0" prefWidth="100.0" text="Delete" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe Print Bold" size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="763.0">
+                     <children>
+                        <Label fx:id="recipeName1" alignment="BOTTOM_LEFT" contentDisplay="CENTER" layoutX="214.0" prefHeight="50.0" prefWidth="294.0" text="Instrcutions">
+                           <font>
+                              <Font name="Segoe Script Bold" size="25.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop color="#0408f2" />
+                                    <Stop color="#f50e0e" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Label>
+                        <Button layoutX="57.0" layoutY="130.0" mnemonicParsing="false" onAction="#saveClicked" prefHeight="40.0" prefWidth="100.0" text="Save" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe Print Bold" size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button layoutX="649.0" layoutY="7.0" mnemonicParsing="false" onAction="#clearInstructionClicked" prefHeight="40.0" prefWidth="100.0" text="Clear" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe Print Bold" size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <TableView fx:id="instructionTable" layoutX="214.0" layoutY="50.0" prefHeight="200.0" prefWidth="544.0">
+                          <columns>
+                            <TableColumn fx:id="stepCol" editable="false" prefWidth="50.0" resizable="false" sortable="false" text="Step" />
+                            <TableColumn fx:id="insDescriptionCol" prefWidth="494.0" resizable="false" sortable="false" text="Description" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </TableView>
+                        <Button layoutX="544.0" layoutY="7.0" mnemonicParsing="false" onAction="#deleteInstructionClicked" prefHeight="40.0" prefWidth="100.0" text="Delete" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe Print Bold" size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button layoutX="440.0" layoutY="7.0" mnemonicParsing="false" onAction="#addInstructionClicked" prefHeight="40.0" prefWidth="100.0" text="Add" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe Print Bold" size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </VBox>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </Pane>
+   </center>
+   <right>
+      <Pane prefHeight="411.0" prefWidth="37.0" style="-fx-background-color: #b8bfd8;" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="1.0" layoutY="1.0" maxHeight="35.0" maxWidth="35.0" minHeight="35.0" minWidth="35.0" mnemonicParsing="false" onAction="#returnHome" prefHeight="35.0" prefWidth="35.0" text="Home">
+               <font>
+                  <Font size="7.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="1.0" layoutY="37.0" mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="35.0" text="Back">
+               <font>
+                  <Font size="8.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="1.0" layoutY="564.0" mnemonicParsing="false" onAction="#showInf" prefHeight="35.0" prefWidth="35.0" text="Info">
+               <font>
+                  <Font size="9.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+         </children>
+      </Pane>
+   </right>
+</BorderPane>
