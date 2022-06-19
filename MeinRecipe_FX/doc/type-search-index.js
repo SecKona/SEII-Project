@@ -1,1 +1,0 @@
-typeSearchIndex = [{"p":"meinRecipe_Model","l":"Ingredient"},{"p":"meinRecipe_Model","l":"Instruction"},{"p":"meinRecipe_Model","l":"Recipe"},{"l":"所有类","u":"allclasses-index.html"}];updateSearchResults();
