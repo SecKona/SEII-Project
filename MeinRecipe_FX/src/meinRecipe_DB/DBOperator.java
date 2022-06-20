@@ -163,8 +163,6 @@ public class DBOperator {
 	public static boolean insert(Recipe r) {
 		try {
 			DBConnector.connectToDB();
-			int ingCount = 1;
-			int insCount = 1;
 			Statement sRecipe = DBConnector.con.createStatement();
 			Statement sIngredients = DBConnector.con.createStatement();
 			Statement sInstructions = DBConnector.con.createStatement();
@@ -181,13 +179,13 @@ public class DBOperator {
 				for (Ingredient ing : r.getIngredients()) {
 					sIngredients.executeUpdate(
 							"INSERT INTO ingredients (recipe_id,ingredient_id,quantity,description) VALUES (" + rid
-									+ "," + ingCount++ + "," + ing.getQuantity() + ",'" + ing.getDescription() + "')");
+									+ "," + ing.getIngredientId() + "," + ing.getQuantity() + ",'" + ing.getDescription() + "')");
 				}
 				// Set instructions
 				for (Instruction ins : r.getInstructions()) {
 					sInstructions
 							.executeUpdate("INSERT INTO instructions (recipe_id,instruction_id,description) VALUES ("
-									+ rid + "," + insCount++ + ",'" + ins.getDescription() + "')");
+									+ rid + "," + ins.getInstructionId() + ",'" + ins.getDescription() + "')");
 				}
 			}
 			DBConnector.disconnectToDB();

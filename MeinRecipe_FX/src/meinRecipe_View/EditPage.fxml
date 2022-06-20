@@ -39,7 +39,7 @@
                   </AnchorPane>
                   <HBox prefHeight="40.0" prefWidth="100.0">
                      <children>
-                        <Label prefHeight="37.0" prefWidth="126.0" text="PrepTime">
+                        <Label prefHeight="37.0" prefWidth="128.0" text="PrepTime">
                            <font>
                               <Font name="Segoe Script Bold" size="20.0" />
                            </font>
@@ -55,7 +55,7 @@
                               <Insets left="15.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="prepTime" alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="65.0" promptText="min">
+                        <TextField fx:id="prepTime" alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="100.0" promptText="min">
                            <HBox.margin>
                               <Insets top="8.0" />
                            </HBox.margin>
@@ -82,7 +82,7 @@
                               </LinearGradient>
                            </textFill>
                         </Label>
-                        <TextField fx:id="cookTime" alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="65.0" promptText="min">
+                        <TextField fx:id="cookTime" alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="100.0" promptText="min">
                            <HBox.margin>
                               <Insets top="8.0" />
                            </HBox.margin>
@@ -109,7 +109,7 @@
                               <Insets left="60.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="serveNum" alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="65.0">
+                        <TextField fx:id="serveNum" alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="50.0">
                            <HBox.margin>
                               <Insets right="5.0" top="8.0" />
                            </HBox.margin>

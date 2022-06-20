@@ -9,9 +9,9 @@ import java.util.Optional;
 import javax.imageio.ImageIO;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -28,7 +28,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.converter.IntegerStringConverter;
@@ -82,8 +81,6 @@ public class EditPageController {
 	private TextField cookTime;
 
 	private static Recipe editingRecipe;
-	private Integer ingredientNum;
-	private Integer instructionNum;
 
 	@FXML
 	/**
@@ -125,6 +122,7 @@ public class EditPageController {
 	 * @param event javaFX event
 	 */
 	void addIngredientClicked(ActionEvent event) {
+		int ingredientNum = editingRecipe.getIngredients().size();
 		Ingredient tmp = new Ingredient(++ingredientNum);
 		editingRecipe.addIngredient(tmp);
 		this.ingredientTable.getItems().add(tmp);
@@ -180,6 +178,7 @@ public class EditPageController {
 	 * @param event javaFX event
 	 */
 	void addInstructionClicked(ActionEvent event) {
+		int instructionNum = editingRecipe.getInstructions().size();
 		Instruction tmp = new Instruction(++instructionNum);
 		editingRecipe.addInstruction(tmp);
 		this.instructionTable.getItems().add(tmp);
@@ -246,25 +245,27 @@ public class EditPageController {
 
 		editingRecipe.setRecipeRegion(this.regionChoices.getSelectionModel().getSelectedItem());
 
-		if (checkInput(this.prepTime, "^[1-9]\\d*$")) {
+		if (checkInput(this.prepTime, "[1-9][0-9]{0,2}")) {
 			editingRecipe.setPrepTime(Integer.valueOf(this.prepTime.getText()));
 		} else {
 			showAlert(Alert.AlertType.ERROR, "Error", "Illegal input: preparation time",
-					"Please input a positive number!");
+					"Please input a positive number [1~999]!");
 			return;
 		}
 
-		if (checkInput(this.cookTime, "^[1-9]\\d*$")) {
+		if (checkInput(this.cookTime, "[1-9][0-9]{0,2}")) {
 			editingRecipe.setCookTime(Integer.valueOf(this.cookTime.getText()));
 		} else {
-			showAlert(Alert.AlertType.ERROR, "Error", "Illegal input: cook time", "Please input a positive number!");
+			showAlert(Alert.AlertType.ERROR, "Error", "Illegal input: cook time",
+					"Please input a positive number [1~999]!");
 			return;
 		}
 
-		if (checkInput(this.serveNum, "^[1-9]\\d*$")) {
+		if (checkInput(this.serveNum, "[1-9][0-9]?")) {
 			editingRecipe.setServe(Integer.valueOf(this.serveNum.getText()));
 		} else {
-			showAlert(Alert.AlertType.ERROR, "Error", "Illegal input: serve number", "Please input a positive number!");
+			showAlert(Alert.AlertType.ERROR, "Error", "Illegal input: serve number",
+					"Please input a positive number [1~99]!");
 			return;
 		}
 
@@ -377,8 +378,6 @@ public class EditPageController {
 		this.regionChoices.setItems(choiceList);
 		this.fillinRecipeView(editingRecipe);
 		this.setEditView();
-		this.ingredientNum = editingRecipe.getIngredients().size();
-		this.instructionNum = editingRecipe.getInstructions().size();
 	}
 
 	/**
@@ -428,7 +427,17 @@ public class EditPageController {
 	 */
 	public void setEditView() {
 		ingredientTable.setEditable(true);
-		ingredientTable.addEventFilter(MouseEvent.MOUSE_DRAGGED, Event::consume);
+		ingredientTable.getColumns().addListener(new ListChangeListener<Object>() {
+			@SuppressWarnings("unchecked")
+			@Override
+			public void onChanged(Change<?> change) {
+				change.next();
+				if (change.wasReplaced()) {
+					ingredientTable.getColumns().clear();
+					ingredientTable.getColumns().addAll(quantityCol, ingDescriptionCol);
+				}
+			}
+		});
 		quantityCol.setCellFactory(t -> {
 			TextFieldTableCell<Ingredient, Integer> cell = new TextFieldTableCell<Ingredient, Integer>(
 					new IntegerStringConverter());
@@ -441,8 +450,13 @@ public class EditPageController {
 			return cell;
 		});
 		quantityCol.setOnEditCommit(event -> {
-			((Ingredient) event.getTableView().getItems().get(event.getTablePosition().getRow()))
-					.setQuantity(event.getNewValue());
+			if (event.getNewValue().toString().matches("[0-9]{0,4}")) {
+				((Ingredient) event.getTableView().getItems().get(event.getTablePosition().getRow()))
+						.setQuantity(event.getNewValue());
+			} else {
+				showAlert(Alert.AlertType.ERROR, "Error", "Illegal input", "Please input a number [0~9999]!");
+				ingredientTable.refresh();
+			}
 		});
 		ingDescriptionCol.setCellFactory(TextFieldTableCell.forTableColumn());
 		ingDescriptionCol.setOnEditCommit(event -> {
@@ -451,7 +465,17 @@ public class EditPageController {
 		});
 
 		instructionTable.setEditable(true);
-		instructionTable.addEventFilter(MouseEvent.MOUSE_DRAGGED, Event::consume);
+		instructionTable.getColumns().addListener(new ListChangeListener<Object>() {
+			@SuppressWarnings("unchecked")
+			@Override
+			public void onChanged(Change<?> change) {
+				change.next();
+				if (change.wasReplaced()) {
+					instructionTable.getColumns().clear();
+					instructionTable.getColumns().addAll(stepCol, insDescriptionCol);
+				}
+			}
+		});
 		insDescriptionCol.setCellFactory(TextFieldTableCell.forTableColumn());
 		insDescriptionCol.setOnEditCommit(event -> {
 			((Instruction) event.getTableView().getItems().get(event.getTablePosition().getRow()))

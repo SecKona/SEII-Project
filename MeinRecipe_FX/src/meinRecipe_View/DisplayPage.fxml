@@ -100,7 +100,7 @@
                               <Insets left="15.0" />
                            </HBox.margin>
                         </Label>
-                        <Label fx:id="prepTime" prefWidth="60.0" text="min">
+                        <Label fx:id="prepTime" prefWidth="100.0" text="min" textFill="#00dac8">
                            <font>
                               <Font name="Segoe Print" size="19.0" />
                            </font>
@@ -121,7 +121,7 @@
                               </LinearGradient>
                            </textFill>
                         </Label>
-                        <Label fx:id="cookTime" prefWidth="60.0" text="min">
+                        <Label fx:id="cookTime" prefWidth="100.0" text="min" textFill="#05a79c">
                            <font>
                               <Font name="Segoe Print" size="19.0" />
                            </font>
@@ -142,7 +142,7 @@
                               </LinearGradient>
                            </textFill>
                         </Label>
-                        <TextField fx:id="serveNum" alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="40.0" promptText="1">
+                        <TextField fx:id="serveNum" alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="50.0" promptText="1">
                            <HBox.margin>
                               <Insets left="12.0" right="10.0" />
                            </HBox.margin>

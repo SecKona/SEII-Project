@@ -114,11 +114,11 @@ public class DisplayPageController {
 	 * @param event javaFX event
 	 */
 	void calculateClicked(ActionEvent event) {
-		if (checkInput(serveNum, "^[1-9]\\d*$")) {
+		if (checkInput(serveNum, "[1-9][0-9]?")) {
 			viewingRecipe.calIngredients(Integer.valueOf(this.serveNum.getText()));
 			this.ingredientList.refresh();
 		} else {
-			showAlert(Alert.AlertType.ERROR, "Error", "Illegal input", "Please input a positive number!");
+			showAlert(Alert.AlertType.ERROR, "Error", "Illegal input", "Please input a positive number [1~99]!");
 			return;
 		}
 	}
@@ -180,8 +180,8 @@ public class DisplayPageController {
 	public void fillinRecipeView(Recipe r) {
 		this.recipeName.setText(r.getRecipeName());
 		this.region.setText(r.getRecipeRegion());
-		this.prepTime.setText(String.valueOf(r.getPrepTime()));
-		this.cookTime.setText(String.valueOf(r.getCookTime()));
+		this.prepTime.setText(String.valueOf(r.getPrepTime()) + "min");
+		this.cookTime.setText(String.valueOf(r.getCookTime()) + "min");
 		this.serveNum.setText(String.valueOf(r.getServe()));
 
 		ObservableList<Ingredient> ingList = FXCollections.observableArrayList(r.getIngredients());

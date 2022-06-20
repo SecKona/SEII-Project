@@ -120,7 +120,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </TableView>
-                  <Button layoutX="420.0" layoutY="60.0" mnemonicParsing="false" onAction="#viewClicked" style="-fx-border-color: ff00ff; -fx-background-radius: 10; -fx-border-radius: 10;" text="View">
+                  <Button layoutX="420.0" layoutY="60.0" mnemonicParsing="false" onAction="#viewClicked" style="-fx-border-color: ff00ff; -fx-background-radius: 10; -fx-border-radius: 10;" text="Detail">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
