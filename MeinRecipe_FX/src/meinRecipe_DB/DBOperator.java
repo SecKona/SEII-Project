@@ -19,6 +19,7 @@ public class DBOperator {
 	 * Search operation to DB, search all of the recipes
 	 * 
 	 * @param r a given list to store searched recipes
+	 * @return if search successful
 	 */
 	public static boolean searchAll(List<Recipe> r) {
 		r.clear();
@@ -64,6 +65,7 @@ public class DBOperator {
 	 * 
 	 * @param r  a given list to store searched recipes
 	 * @param rn name of recipe to search
+	 * @return if search successful
 	 */
 	public static boolean searchByName(List<Recipe> r, String rn) {
 		r.clear();
@@ -110,6 +112,7 @@ public class DBOperator {
 	 * 
 	 * @param r  a given list to store searched recipes
 	 * @param rg region of recipe to search
+	 * @return if search successful
 	 */
 	public static boolean searchByRegion(List<Recipe> r, String rg) {
 		r.clear();
@@ -155,6 +158,7 @@ public class DBOperator {
 	 * Insert operation to DB, insert a given recipe
 	 * 
 	 * @param r a recipe object to insert
+	 * @return if insert successful
 	 */
 	public static boolean insert(Recipe r) {
 		try {
@@ -196,8 +200,8 @@ public class DBOperator {
 	/**
 	 * Update operation to DB, update a recipe with given changed recipe and rid
 	 * 
-	 * @param r   a recipe object for update
-	 * @param rid id of recipe to be updated
+	 * @param r a recipe object for update
+	 * @return if update successful
 	 */
 	public static boolean update(Recipe r) {
 		try {
@@ -235,6 +239,7 @@ public class DBOperator {
 	 * Delete operation to DB, delete a recipe with given rid
 	 * 
 	 * @param rid id of recipe to be deleted
+	 * @return if delete successful
 	 */
 	public static boolean delete(int rid) {
 		try {

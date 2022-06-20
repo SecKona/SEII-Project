@@ -25,6 +25,12 @@ import javafx.stage.Stage;
 import meinRecipe_DB.DBOperator;
 import meinRecipe_Model.Recipe;
 
+/**
+ * Controller class for search page
+ * 
+ * @author SecKona
+ *
+ */
 public class SearchPageController {
 
 	@FXML
@@ -46,8 +52,8 @@ public class SearchPageController {
 
 	@FXML
 	/**
-	 * Search recipe by name and display searched list in tableView, is called when corresponding
-	 * button is clicked
+	 * Search recipe by name and display searched list in tableView, is called when
+	 * corresponding button is clicked
 	 * 
 	 * @param event javaFX event
 	 */
@@ -59,15 +65,15 @@ public class SearchPageController {
 		if (DBOperator.searchByName(this.recipeList, inputName.getText())) {
 			fillinRecipeTable(this.recipeList);
 		} else {
-			showAlert(Alert.AlertType.ERROR, "Error", "Search failed", "Illegal recipe name!");
+			showAlert(Alert.AlertType.ERROR, "Error", "Search failed", "Database connection failed or illegal recipe name!");
 			return;
 		}
 	}
 
 	@FXML
 	/**
-	 * Search recipe by region and display searched list in tableView, is called when
-	 * corresponding button is clicked
+	 * Search recipe by region and display searched list in tableView, is called
+	 * when corresponding button is clicked
 	 * 
 	 * @param event javaFX event
 	 */
@@ -75,15 +81,15 @@ public class SearchPageController {
 		if (DBOperator.searchByRegion(this.recipeList, regionChoices.getSelectionModel().getSelectedItem())) {
 			fillinRecipeTable(this.recipeList);
 		} else {
-			showAlert(Alert.AlertType.ERROR, "Error", "Search failed", "Illegal recipe region!");
+			showAlert(Alert.AlertType.ERROR, "Error", "Search failed", "Database connection failed or illegal recipe region!");
 			return;
 		}
 	}
 
 	@FXML
 	/**
-	 * Delete the selected recipe in tableView, is called when corresponding
-	 * button is clicked
+	 * Delete the selected recipe in tableView, is called when corresponding button
+	 * is clicked
 	 * 
 	 * @param event javaFX event
 	 */
@@ -97,7 +103,7 @@ public class SearchPageController {
 							"The selected recipe is deleted");
 					fillinRecipeTable(recipeList);
 				} else {
-					showAlert(Alert.AlertType.ERROR, "Error", "Delete failed", "Can not delete this recipe!");
+					showAlert(Alert.AlertType.ERROR, "Error", "Delete failed", "Unable not delete this recipe!");
 					return;
 				}
 			}

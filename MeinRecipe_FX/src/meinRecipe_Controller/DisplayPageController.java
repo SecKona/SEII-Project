@@ -26,6 +26,12 @@ import meinRecipe_Model.Ingredient;
 import meinRecipe_Model.Instruction;
 import meinRecipe_Model.Recipe;
 
+/**
+ * Controller class for display page
+ * 
+ * @author SecKona
+ *
+ */
 public class DisplayPageController {
 
 	@FXML
@@ -94,7 +100,7 @@ public class DisplayPageController {
 				mainWindow.setTitle("MeinRecipe - Search page");
 				mainWindow.setScene(mainPage);
 			} else {
-				showAlert(Alert.AlertType.ERROR, "Error", "Delete failed", "Can not delete this recipe!");
+				showAlert(Alert.AlertType.ERROR, "Error", "Delete failed", "Unable not delete this recipe!");
 				return;
 			}
 		}
@@ -201,7 +207,7 @@ public class DisplayPageController {
 	 * Regular expression
 	 * 
 	 * @param textField given textField
-	 * @param regex given Regular expression
+	 * @param regex     given Regular expression
 	 * @return if check passed or not
 	 */
 	public boolean checkInput(TextField textField, String regex) {

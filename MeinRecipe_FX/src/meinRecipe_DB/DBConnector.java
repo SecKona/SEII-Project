@@ -15,7 +15,7 @@ public class DBConnector {
 	/**
 	 * Connect operation of DB
 	 * 
-	 * @throws SQLException
+	 * @throws SQLException java IOException
 	 * 
 	 */
 	public static void connectToDB() throws SQLException {
@@ -25,7 +25,7 @@ public class DBConnector {
 	/**
 	 * Disconnect operation of DB
 	 * 
-	 * @throws SQLException
+	 * @throws SQLException java IOException
 	 * 
 	 */
 	public static void disconnectToDB() throws SQLException {

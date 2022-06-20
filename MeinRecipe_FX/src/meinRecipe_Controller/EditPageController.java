@@ -37,6 +37,12 @@ import meinRecipe_Model.Ingredient;
 import meinRecipe_Model.Instruction;
 import meinRecipe_Model.Recipe;
 
+/**
+ * Controller class for edit page
+ * 
+ * @author SecKona
+ *
+ */
 public class EditPageController {
 
 	@FXML
@@ -98,7 +104,16 @@ public class EditPageController {
 			ImageIO.write(ImageIO.read(selectedImage), "png", outputImage);
 			outputImage.close();
 			editingRecipe.setImageURL("/recipeImage/" + selectedImage.getName());
-			fillinRecipeView(editingRecipe);
+			try {
+				FileInputStream inputImage = new FileInputStream(
+						System.getProperty("user.dir") + "/src" + editingRecipe.getImageURL());
+				this.recipeImage.setImage(new Image(inputImage));
+				inputImage.close();
+			} catch (IOException e) {
+				showAlert(Alert.AlertType.ERROR, "Error", "Failed to load recipe image",
+						"Recipe image will be changed to default");
+				return;
+			}
 		}
 	}
 
@@ -111,8 +126,8 @@ public class EditPageController {
 	 */
 	void addIngredientClicked(ActionEvent event) {
 		Ingredient tmp = new Ingredient(++ingredientNum);
-		this.ingredientTable.getItems().add(tmp);
 		editingRecipe.addIngredient(tmp);
+		this.ingredientTable.getItems().add(tmp);
 	}
 
 	@FXML
@@ -128,7 +143,10 @@ public class EditPageController {
 					"Are you sure to delete this ingredient?")) {
 				editingRecipe.getIngredients().remove(this.ingredientTable.getSelectionModel().getSelectedItem());
 				editingRecipe.refreshIngredientId();
-				fillinRecipeView(editingRecipe);
+				ObservableList<Ingredient> ingList = FXCollections.observableArrayList(editingRecipe.getIngredients());
+				this.quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+				this.ingDescriptionCol.setCellValueFactory(new PropertyValueFactory<>("description"));
+				this.ingredientTable.setItems(ingList);
 			}
 		} else {
 			showAlert(Alert.AlertType.ERROR, "Error", "None of ingredient is selected",
@@ -147,7 +165,10 @@ public class EditPageController {
 		if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "All ingredients will be deleted",
 				"Are you sure to delete these ingredients?")) {
 			editingRecipe.getIngredients().clear();
-			fillinRecipeView(editingRecipe);
+			ObservableList<Ingredient> ingList = FXCollections.observableArrayList(editingRecipe.getIngredients());
+			this.quantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+			this.ingDescriptionCol.setCellValueFactory(new PropertyValueFactory<>("description"));
+			this.ingredientTable.setItems(ingList);
 		}
 	}
 
@@ -160,8 +181,8 @@ public class EditPageController {
 	 */
 	void addInstructionClicked(ActionEvent event) {
 		Instruction tmp = new Instruction(++instructionNum);
-		this.instructionTable.getItems().add(tmp);
 		editingRecipe.addInstruction(tmp);
+		this.instructionTable.getItems().add(tmp);
 	}
 
 	@FXML
@@ -177,7 +198,11 @@ public class EditPageController {
 					"Are you sure to delete this instruction?")) {
 				editingRecipe.getInstructions().remove(this.instructionTable.getSelectionModel().getSelectedItem());
 				editingRecipe.refreshInstructionId();
-				fillinRecipeView(editingRecipe);
+				ObservableList<Instruction> insList = FXCollections
+						.observableArrayList(editingRecipe.getInstructions());
+				this.stepCol.setCellValueFactory(new PropertyValueFactory<>("instructionId"));
+				this.insDescriptionCol.setCellValueFactory(new PropertyValueFactory<>("description"));
+				this.instructionTable.setItems(insList);
 			}
 		} else {
 			showAlert(Alert.AlertType.ERROR, "Error", "None of instruction is selected",
@@ -196,7 +221,10 @@ public class EditPageController {
 		if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "All instructions will be deleted",
 				"Are you sure to delete these instructions?")) {
 			editingRecipe.getInstructions().clear();
-			fillinRecipeView(editingRecipe);
+			ObservableList<Instruction> insList = FXCollections.observableArrayList(editingRecipe.getInstructions());
+			this.stepCol.setCellValueFactory(new PropertyValueFactory<>("instructionId"));
+			this.insDescriptionCol.setCellValueFactory(new PropertyValueFactory<>("description"));
+			this.instructionTable.setItems(insList);
 		}
 	}
 
@@ -266,14 +294,16 @@ public class EditPageController {
 			if (DBOperator.update(editingRecipe)) {
 				showAlert(Alert.AlertType.INFORMATION, "Info", "Update successful", "The recipe is updated");
 			} else {
-				showAlert(Alert.AlertType.ERROR, "Error", "Update failed", "The recipe have invalid name!");
+				showAlert(Alert.AlertType.ERROR, "Error", "Update failed",
+						"Database connection failed or the recipe have illegal text!");
 				return;
 			}
 		} else {
 			if (DBOperator.insert(editingRecipe)) {
 				showAlert(Alert.AlertType.INFORMATION, "Info", "Save successful", "The recipe is saved");
 			} else {
-				showAlert(Alert.AlertType.ERROR, "Error", "Save failed", "The recipe have invalid name!");
+				showAlert(Alert.AlertType.ERROR, "Error", "Save failed",
+						"Database connection failed or the recipe have illegal text!");
 				return;
 			}
 		}
@@ -434,7 +464,7 @@ public class EditPageController {
 	 * Regular expression
 	 * 
 	 * @param textField given textField
-	 * @param regex given Regular expression
+	 * @param regex     given Regular expression
 	 * @return if check passed or not
 	 */
 	public boolean checkInput(TextField textField, String regex) {
