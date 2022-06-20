@@ -45,6 +45,12 @@ public class SearchPageController {
 	private List<Recipe> recipeList = new LinkedList<>();
 
 	@FXML
+	/**
+	 * Search recipe by name and display searched list in tableView, is called when corresponding
+	 * button is clicked
+	 * 
+	 * @param event javaFX event
+	 */
 	void searchByName(ActionEvent event) {
 		if (this.inputName.getText() == null) {
 			showAlert(Alert.AlertType.ERROR, "Error", "Null input", "Please input a recipe name for search!");
@@ -59,6 +65,12 @@ public class SearchPageController {
 	}
 
 	@FXML
+	/**
+	 * Search recipe by region and display searched list in tableView, is called when
+	 * corresponding button is clicked
+	 * 
+	 * @param event javaFX event
+	 */
 	void searchByRegion(ActionEvent event) {
 		if (DBOperator.searchByRegion(this.recipeList, regionChoices.getSelectionModel().getSelectedItem())) {
 			fillinRecipeTable(this.recipeList);
@@ -69,6 +81,12 @@ public class SearchPageController {
 	}
 
 	@FXML
+	/**
+	 * Delete the selected recipe in tableView, is called when corresponding
+	 * button is clicked
+	 * 
+	 * @param event javaFX event
+	 */
 	void deleteClicked(ActionEvent event) {
 		if (this.recipeTable.getSelectionModel().getSelectedItem() != null) {
 			if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "The selected recipe will be deleted",
@@ -90,6 +108,12 @@ public class SearchPageController {
 	}
 
 	@FXML
+	/**
+	 * Change scene to display page, is called when corresponding button is clicked
+	 * 
+	 * @param event javaFX event
+	 * @throws IOException java IOException
+	 */
 	void viewClicked(ActionEvent event) throws IOException {
 		if (this.recipeTable.getSelectionModel().getSelectedItem() != null) {
 			DisplayPageController.setViewingRecipe(recipeTable.getSelectionModel().getSelectedItem());
@@ -108,6 +132,12 @@ public class SearchPageController {
 	}
 
 	@FXML
+	/**
+	 * Change scene to home page, is called when corresponding button is clicked
+	 * 
+	 * @param event javaFX event
+	 * @throws IOException java IOException
+	 */
 	public void returnHome(ActionEvent event) throws IOException {
 		Parent homePageScene = FXMLLoader.load(getClass().getResource("/meinRecipe_View/HomePage.fxml"));
 		Scene mainPage = new Scene(homePageScene);
@@ -118,17 +148,27 @@ public class SearchPageController {
 	}
 
 	@FXML
+	/**
+	 * JavaFX scene initialize method, is called when setting scene
+	 */
 	public void initialize() {
 		ObservableList<String> choiceList = FXCollections.observableArrayList("EU", "SEA", "SA", "LA", "A", "Others");
 		this.regionChoices.setValue("Others");
 		this.regionChoices.setItems(choiceList);
-		if(!DBOperator.searchAll(recipeList)) {
-			showAlert(Alert.AlertType.ERROR, "Error", "Failed to load all existing recipe", "Recipe list will be empty");
+		if (!DBOperator.searchAll(recipeList)) {
+			showAlert(Alert.AlertType.ERROR, "Error", "Failed to load all existing recipe",
+					"Recipe list will be empty");
 			return;
 		}
 		fillinRecipeTable(recipeList);
 	}
 
+	/**
+	 * A customized method, fill in tableView in this scene with searched recipe
+	 * list
+	 * 
+	 * @param rl searched recipe list
+	 */
 	public void fillinRecipeTable(List<Recipe> rl) {
 		ObservableList<Recipe> resultList = FXCollections.observableArrayList(rl);
 		tableNameSP.setCellValueFactory(new PropertyValueFactory<>("recipeName"));
@@ -136,6 +176,15 @@ public class SearchPageController {
 		recipeTable.setItems(resultList);
 	}
 
+	/**
+	 * A customized method, show alert according to given settings
+	 * 
+	 * @param alertType   alert type
+	 * @param title       alert title
+	 * @param headerText  alert header text
+	 * @param contentText alert content text
+	 * @return if user confirm or not
+	 */
 	public boolean showAlert(AlertType alertType, String title, String headerText, String contentText) {
 		Alert a = new Alert(alertType);
 		a.setTitle(title);

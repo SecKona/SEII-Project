@@ -15,26 +15,20 @@ public class DBConnector {
 	/**
 	 * Connect operation of DB
 	 * 
+	 * @throws SQLException
+	 * 
 	 */
-	public static boolean connectToDB() {
-		try {
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cookbook", "root", "Sec.Kona233");
-			return true;
-		} catch (SQLException e) {
-			return false;
-		}
+	public static void connectToDB() throws SQLException {
+		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cookbook", "root", "Sec.Kona233");
 	}
 
 	/**
 	 * Disconnect operation of DB
 	 * 
+	 * @throws SQLException
+	 * 
 	 */
-	public static boolean disconnectToDB() {
-		try {
-			con.close();
-			return true;
-		} catch (SQLException e) {
-			return false;
-		}
+	public static void disconnectToDB() throws SQLException {
+		con.close();
 	}
 }

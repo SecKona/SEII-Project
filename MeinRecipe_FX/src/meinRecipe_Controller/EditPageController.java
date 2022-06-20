@@ -80,6 +80,13 @@ public class EditPageController {
 	private Integer instructionNum;
 
 	@FXML
+	/**
+	 * Edit the editing recipe in this scene and open a fileChooser to choose recipe
+	 * image, is called when corresponding button is clicked
+	 * 
+	 * @param event javaFX event
+	 * @throws IOException java IOException
+	 */
 	void imageEditClicked(ActionEvent event) throws IOException {
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.getExtensionFilters()
@@ -96,6 +103,12 @@ public class EditPageController {
 	}
 
 	@FXML
+	/**
+	 * Add a new ingredient in tableView, is called when corresponding button is
+	 * clicked
+	 * 
+	 * @param event javaFX event
+	 */
 	void addIngredientClicked(ActionEvent event) {
 		Ingredient tmp = new Ingredient(++ingredientNum);
 		this.ingredientTable.getItems().add(tmp);
@@ -103,6 +116,12 @@ public class EditPageController {
 	}
 
 	@FXML
+	/**
+	 * Delete the selected ingredient in tableView, is called when corresponding
+	 * button is clicked
+	 * 
+	 * @param event javaFX event
+	 */
 	void deleteIngredientClicked(ActionEvent event) {
 		if (this.ingredientTable.getSelectionModel().getSelectedItem() != null) {
 			if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "The selected ingredient will be deleted",
@@ -118,6 +137,12 @@ public class EditPageController {
 	}
 
 	@FXML
+	/**
+	 * Delete all ingredients in tableView, is called when corresponding button is
+	 * clicked
+	 * 
+	 * @param event javaFX event
+	 */
 	void clearIngredientClicked(ActionEvent event) {
 		if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "All ingredients will be deleted",
 				"Are you sure to delete these ingredients?")) {
@@ -127,6 +152,12 @@ public class EditPageController {
 	}
 
 	@FXML
+	/**
+	 * Add a new instruction in tableView, is called when corresponding button is
+	 * clicked
+	 * 
+	 * @param event javaFX event
+	 */
 	void addInstructionClicked(ActionEvent event) {
 		Instruction tmp = new Instruction(++instructionNum);
 		this.instructionTable.getItems().add(tmp);
@@ -134,6 +165,12 @@ public class EditPageController {
 	}
 
 	@FXML
+	/**
+	 * Delete the selected instruction in tableView, is called when corresponding
+	 * button is clicked
+	 * 
+	 * @param event javaFX event
+	 */
 	void deleteInstructionClicked(ActionEvent event) {
 		if (this.instructionTable.getSelectionModel().getSelectedItem() != null) {
 			if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "The selected instruction will be deleted",
@@ -149,6 +186,12 @@ public class EditPageController {
 	}
 
 	@FXML
+	/**
+	 * Delete all instruction in tableView, is called when corresponding button is
+	 * clicked
+	 * 
+	 * @param event javaFX event
+	 */
 	void clearInstructionClicked(ActionEvent event) {
 		if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "All instructions will be deleted",
 				"Are you sure to delete these instructions?")) {
@@ -158,6 +201,13 @@ public class EditPageController {
 	}
 
 	@FXML
+	/**
+	 * Save the displaying recipe in this scene and return edited recipe to display
+	 * page, is called when corresponding button is clicked
+	 * 
+	 * @param event javaFX event
+	 * @throws IOException java IOException
+	 */
 	void saveClicked(ActionEvent event) throws IOException {
 		if (this.recipeName.getText() == null || this.recipeName.getText() == "Default") {
 			showAlert(Alert.AlertType.ERROR, "Error", "Null input: recipe name", "Please input the recipe name!");
@@ -239,6 +289,12 @@ public class EditPageController {
 	}
 
 	@FXML
+	/**
+	 * Change scene to home page, is called when corresponding button is clicked
+	 * 
+	 * @param event javaFX event
+	 * @throws IOException java IOException
+	 */
 	void returnHome(ActionEvent event) throws IOException {
 		if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "All change will be lost",
 				"Are you sure to quit without saving?")) {
@@ -252,6 +308,13 @@ public class EditPageController {
 	}
 
 	@FXML
+	/**
+	 * Change scene to display page or home page according to recipeId, is called
+	 * when corresponding button is clicked
+	 * 
+	 * @param event javaFX event
+	 * @throws IOException java IOException
+	 */
 	void back(ActionEvent event) throws IOException {
 		if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "All change will be lost",
 				"Are you sure to quit without saving?")) {
@@ -276,6 +339,9 @@ public class EditPageController {
 	}
 
 	@FXML
+	/**
+	 * JavaFX scene initialize method, is called when setting scene
+	 */
 	public void initialize() {
 		ObservableList<String> choiceList = FXCollections.observableArrayList("EU", "SEA", "SA", "LA", "A", "Others");
 		this.regionChoices.setItems(choiceList);
@@ -285,10 +351,20 @@ public class EditPageController {
 		this.instructionNum = editingRecipe.getInstructions().size();
 	}
 
+	/**
+	 * Set object of this.editingRecipe
+	 * 
+	 * @param er editingRecipe object
+	 */
 	public static void setEditingRecipe(Recipe er) {
 		editingRecipe = new Recipe(er);
 	}
 
+	/**
+	 * A customized method, fill in this scene with given recipe object
+	 * 
+	 * @param r given recipe object
+	 */
 	public void fillinRecipeView(Recipe r) {
 		this.recipeName.setText(r.getRecipeName());
 		this.regionChoices.setValue(r.getRecipeRegion());
@@ -317,6 +393,9 @@ public class EditPageController {
 		}
 	}
 
+	/**
+	 * A customized method, set all tableViewCell to editable textField
+	 */
 	public void setEditView() {
 		ingredientTable.setEditable(true);
 		ingredientTable.addEventFilter(MouseEvent.MOUSE_DRAGGED, Event::consume);
@@ -350,6 +429,14 @@ public class EditPageController {
 		});
 	}
 
+	/**
+	 * A customized method, check input text in given textField object with given
+	 * Regular expression
+	 * 
+	 * @param textField given textField
+	 * @param regex given Regular expression
+	 * @return if check passed or not
+	 */
 	public boolean checkInput(TextField textField, String regex) {
 		if (textField.getText() == null) {
 			return false;
@@ -361,6 +448,15 @@ public class EditPageController {
 		}
 	}
 
+	/**
+	 * A customized method, show alert according to given settings
+	 * 
+	 * @param alertType   alert type
+	 * @param title       alert title
+	 * @param headerText  alert header text
+	 * @param contentText alert content text
+	 * @return if user confirm or not
+	 */
 	public boolean showAlert(AlertType alertType, String title, String headerText, String contentText) {
 		Alert a = new Alert(alertType);
 		a.setTitle(title);

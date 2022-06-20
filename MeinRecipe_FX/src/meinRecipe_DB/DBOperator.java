@@ -22,10 +22,8 @@ public class DBOperator {
 	 */
 	public static boolean searchAll(List<Recipe> r) {
 		r.clear();
-		if (!DBConnector.connectToDB()) {
-			return false;
-		}
 		try {
+			DBConnector.connectToDB();
 			Statement sRecipe = DBConnector.con.createStatement();
 			ResultSet rsetRecipe = sRecipe.executeQuery("SELECT * FROM recipes ORDER BY recipe_id");
 			while (rsetRecipe.next()) {
@@ -69,10 +67,8 @@ public class DBOperator {
 	 */
 	public static boolean searchByName(List<Recipe> r, String rn) {
 		r.clear();
-		if (!DBConnector.connectToDB()) {
-			return false;
-		}
 		try {
+			DBConnector.connectToDB();
 			Statement sRecipe = DBConnector.con.createStatement();
 			ResultSet rsetRecipe = sRecipe
 					.executeQuery("SELECT * FROM recipes WHERE recName LIKE '%" + rn + "%' ORDER BY recipe_id");
@@ -117,10 +113,8 @@ public class DBOperator {
 	 */
 	public static boolean searchByRegion(List<Recipe> r, String rg) {
 		r.clear();
-		if (!DBConnector.connectToDB()) {
-			return false;
-		}
 		try {
+			DBConnector.connectToDB();
 			Statement sRecipe = DBConnector.con.createStatement();
 			ResultSet rsetRecipe = sRecipe
 					.executeQuery("SELECT * FROM recipes WHERE recRegion = '" + rg + "' ORDER BY recipe_id");
@@ -163,10 +157,8 @@ public class DBOperator {
 	 * @param r a recipe object to insert
 	 */
 	public static boolean insert(Recipe r) {
-		if (!DBConnector.connectToDB()) {
-			return false;
-		}
 		try {
+			DBConnector.connectToDB();
 			int ingCount = 1;
 			int insCount = 1;
 			Statement sRecipe = DBConnector.con.createStatement();
@@ -208,10 +200,8 @@ public class DBOperator {
 	 * @param rid id of recipe to be updated
 	 */
 	public static boolean update(Recipe r) {
-		if (!DBConnector.connectToDB()) {
-			return false;
-		}
 		try {
+			DBConnector.connectToDB();
 			Statement sRecipe = DBConnector.con.createStatement();
 			Statement sIngredients = DBConnector.con.createStatement();
 			Statement sInstructions = DBConnector.con.createStatement();
@@ -247,10 +237,8 @@ public class DBOperator {
 	 * @param rid id of recipe to be deleted
 	 */
 	public static boolean delete(int rid) {
-		if (!DBConnector.connectToDB()) {
-			return false;
-		}
 		try {
+			DBConnector.connectToDB();
 			Statement sRecipe = DBConnector.con.createStatement();
 			sRecipe.executeUpdate("DELETE FROM recipes WHERE recipe_id = " + rid);
 			DBConnector.disconnectToDB();

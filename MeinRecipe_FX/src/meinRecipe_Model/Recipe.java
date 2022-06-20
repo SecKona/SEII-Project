@@ -94,7 +94,7 @@ public class Recipe {
 	}
 
 	/**
-	 * Refresh instruction id (Step), called when an instruction is deleted;
+	 * Refresh instruction id (Step), is called when an instruction is deleted;
 	 */
 	public void refreshIngredientId() {
 		int ingId = 1;
@@ -104,7 +104,7 @@ public class Recipe {
 	}
 
 	/**
-	 * Refresh ingredient id (Order), called when an ingredient is deleted;
+	 * Refresh ingredient id (Order), is called when an ingredient is deleted;
 	 */
 	public void refreshInstructionId() {
 		int insId = 1;
