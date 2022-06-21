@@ -221,7 +221,7 @@
                               </LinearGradient>
                            </textFill>
                         </Label>
-                        <Button layoutX="57.0" layoutY="130.0" mnemonicParsing="false" onAction="#saveClicked" prefHeight="40.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-border-color: ffb700; -fx-border-radius: 10;" text="Save" textAlignment="CENTER">
+                        <Button layoutX="57.0" layoutY="50.0" mnemonicParsing="false" onAction="#saveClicked" prefHeight="40.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-border-color: ffb700; -fx-border-radius: 10;" text="Save" textAlignment="CENTER" textFill="#40ce04">
                            <font>
                               <Font name="Segoe Print Bold" size="14.0" />
                            </font>
@@ -280,9 +280,19 @@
                               <Tooltip text="Add a new instruction" />
                            </tooltip>
                         </Button>
+                        <Button fx:id="deleteRecipeButton" layoutX="57.0" layoutY="210.0" mnemonicParsing="false" onAction="#deleteRecipe" prefHeight="40.0" prefWidth="100.0" style="-fx-background-radius: 10; -fx-border-color: ffb700; -fx-border-radius: 10;" text="Delete" textAlignment="CENTER" textFill="#d30808">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Segoe Print Bold" size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="Delete this recipe" />
+                           </tooltip>
+                        </Button>
                      </children>
                   </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" />
                </children>
             </VBox>
          </children>

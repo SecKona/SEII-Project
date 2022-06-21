@@ -25,8 +25,8 @@ public class DBOperator {
 		r.clear();
 		try {
 			DBConnector.connectToDB();
-			Statement sRecipe = DBConnector.con.createStatement();
-			ResultSet rsetRecipe = sRecipe.executeQuery("SELECT * FROM recipes ORDER BY recipe_id");
+			PreparedStatement psRecipe = DBConnector.con.prepareStatement("SELECT * FROM recipes ORDER BY recipe_id");
+			ResultSet rsetRecipe = psRecipe.executeQuery();
 			while (rsetRecipe.next()) {
 				// Get basic info
 				Recipe tmp = new Recipe(rsetRecipe.getString("recName"), rsetRecipe.getString("recRegion"),
@@ -35,18 +35,20 @@ public class DBOperator {
 				tmp.setRecipeId(rsetRecipe.getInt("recipe_id"));
 				tmp.setImageURL(rsetRecipe.getString("imageURL"));
 				// Get ingredients
-				Statement sIngredients = DBConnector.con.createStatement();
-				ResultSet rsetIngredients = sIngredients.executeQuery("SELECT * FROM ingredients where recipe_id = "
-						+ rsetRecipe.getString("recipe_id") + " ORDER BY ingredient_id");
+				PreparedStatement psIngredients = DBConnector.con
+						.prepareStatement("SELECT * FROM ingredients where recipe_id = ? ORDER BY ingredient_id");
+				psIngredients.setString(1, rsetRecipe.getString("recipe_id"));
+				ResultSet rsetIngredients = psIngredients.executeQuery();
 				while (rsetIngredients.next()) {
 					tmp.addIngredient(Integer.valueOf(rsetIngredients.getInt("ingredient_id")),
 							Integer.valueOf(rsetIngredients.getInt("quantity")),
 							rsetIngredients.getString("description"));
 				}
 				// Get instructions
-				Statement sInstructions = DBConnector.con.createStatement();
-				ResultSet rsetInstructions = sInstructions.executeQuery("SELECT * FROM instructions where recipe_id = "
-						+ rsetRecipe.getString("recipe_id") + " ORDER BY instruction_id");
+				PreparedStatement psInstructions = DBConnector.con
+						.prepareStatement("SELECT * FROM instructions where recipe_id = ? ORDER BY instruction_id");
+				psInstructions.setString(1, rsetRecipe.getString("recipe_id"));
+				ResultSet rsetInstructions = psInstructions.executeQuery();
 				while (rsetInstructions.next()) {
 					tmp.addInstruction(Integer.valueOf(rsetInstructions.getInt("instruction_id")),
 							rsetInstructions.getString("description"));
@@ -56,6 +58,7 @@ public class DBOperator {
 			DBConnector.disconnectToDB();
 			return true;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -71,9 +74,10 @@ public class DBOperator {
 		r.clear();
 		try {
 			DBConnector.connectToDB();
-			Statement sRecipe = DBConnector.con.createStatement();
-			ResultSet rsetRecipe = sRecipe
-					.executeQuery("SELECT * FROM recipes WHERE recName LIKE '%" + rn + "%' ORDER BY recipe_id");
+			PreparedStatement psRecipe = DBConnector.con
+					.prepareStatement("SELECT * FROM recipes WHERE recName LIKE ? ORDER BY recipe_id");
+			psRecipe.setString(1, "%" + rn + "%");
+			ResultSet rsetRecipe = psRecipe.executeQuery();
 			while (rsetRecipe.next()) {
 				// Get basic info
 				Recipe tmp = new Recipe(rsetRecipe.getString("recName"), rsetRecipe.getString("recRegion"),
@@ -82,18 +86,20 @@ public class DBOperator {
 				tmp.setRecipeId(rsetRecipe.getInt("recipe_id"));
 				tmp.setImageURL(rsetRecipe.getString("imageURL"));
 				// Get ingredients
-				Statement sIngredients = DBConnector.con.createStatement();
-				ResultSet rsetIngredients = sIngredients.executeQuery("SELECT * FROM ingredients where recipe_id = "
-						+ rsetRecipe.getString("recipe_id") + " ORDER BY ingredient_id");
+				PreparedStatement psIngredients = DBConnector.con
+						.prepareStatement("SELECT * FROM ingredients where recipe_id = ? ORDER BY ingredient_id");
+				psIngredients.setString(1, rsetRecipe.getString("recipe_id"));
+				ResultSet rsetIngredients = psIngredients.executeQuery();
 				while (rsetIngredients.next()) {
 					tmp.addIngredient(Integer.valueOf(rsetIngredients.getInt("ingredient_id")),
 							Integer.valueOf(rsetIngredients.getInt("quantity")),
 							rsetIngredients.getString("description"));
 				}
 				// Get instructions
-				Statement sInstructions = DBConnector.con.createStatement();
-				ResultSet rsetInstructions = sInstructions.executeQuery("SELECT * FROM instructions where recipe_id = "
-						+ rsetRecipe.getString("recipe_id") + " ORDER BY instruction_id");
+				PreparedStatement psInstructions = DBConnector.con
+						.prepareStatement("SELECT * FROM instructions where recipe_id = ? ORDER BY instruction_id");
+				psInstructions.setString(1, rsetRecipe.getString("recipe_id"));
+				ResultSet rsetInstructions = psInstructions.executeQuery();
 				while (rsetInstructions.next()) {
 					tmp.addInstruction(Integer.valueOf(rsetInstructions.getInt("instruction_id")),
 							rsetInstructions.getString("description"));
@@ -103,6 +109,7 @@ public class DBOperator {
 			DBConnector.disconnectToDB();
 			return true;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -118,9 +125,10 @@ public class DBOperator {
 		r.clear();
 		try {
 			DBConnector.connectToDB();
-			Statement sRecipe = DBConnector.con.createStatement();
-			ResultSet rsetRecipe = sRecipe
-					.executeQuery("SELECT * FROM recipes WHERE recRegion = '" + rg + "' ORDER BY recipe_id");
+			PreparedStatement psRecipe = DBConnector.con
+					.prepareStatement("SELECT * FROM recipes WHERE recRegion = ? ORDER BY recipe_id");
+			psRecipe.setString(1, rg);
+			ResultSet rsetRecipe = psRecipe.executeQuery();
 			while (rsetRecipe.next()) {
 				// Get basic info
 				Recipe tmp = new Recipe(rsetRecipe.getString("recName"), rsetRecipe.getString("recRegion"),
@@ -129,18 +137,20 @@ public class DBOperator {
 				tmp.setRecipeId(rsetRecipe.getInt("recipe_id"));
 				tmp.setImageURL(rsetRecipe.getString("imageURL"));
 				// Get ingredients
-				Statement sIngredients = DBConnector.con.createStatement();
-				ResultSet rsetIngredients = sIngredients.executeQuery("SELECT * FROM ingredients where recipe_id = "
-						+ rsetRecipe.getString("recipe_id") + " ORDER BY ingredient_id");
+				PreparedStatement psIngredients = DBConnector.con
+						.prepareStatement("SELECT * FROM ingredients where recipe_id = ? ORDER BY ingredient_id");
+				psIngredients.setString(1, rsetRecipe.getString("recipe_id"));
+				ResultSet rsetIngredients = psIngredients.executeQuery();
 				while (rsetIngredients.next()) {
 					tmp.addIngredient(Integer.valueOf(rsetIngredients.getInt("ingredient_id")),
 							Integer.valueOf(rsetIngredients.getInt("quantity")),
 							rsetIngredients.getString("description"));
 				}
 				// Get instructions
-				Statement sInstructions = DBConnector.con.createStatement();
-				ResultSet rsetInstructions = sInstructions.executeQuery("SELECT * FROM instructions where recipe_id = "
-						+ rsetRecipe.getString("recipe_id") + " ORDER BY instruction_id");
+				PreparedStatement psInstructions = DBConnector.con
+						.prepareStatement("SELECT * FROM instructions where recipe_id = ? ORDER BY instruction_id");
+				psInstructions.setString(1, rsetRecipe.getString("recipe_id"));
+				ResultSet rsetInstructions = psInstructions.executeQuery();
 				while (rsetInstructions.next()) {
 					tmp.addInstruction(Integer.valueOf(rsetInstructions.getInt("instruction_id")),
 							rsetInstructions.getString("description"));
@@ -150,6 +160,7 @@ public class DBOperator {
 			DBConnector.disconnectToDB();
 			return true;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -163,34 +174,44 @@ public class DBOperator {
 	public static boolean insert(Recipe r) {
 		try {
 			DBConnector.connectToDB();
-			Statement sRecipe = DBConnector.con.createStatement();
-			Statement sIngredients = DBConnector.con.createStatement();
-			Statement sInstructions = DBConnector.con.createStatement();
-			// Set basic info
-			sRecipe.executeUpdate(
-					"INSERT INTO recipes (recName,recRegion,imageURL,prepTime,cookTime,serve) VALUES ('"
-							+ r.getRecipeName() + "','" + r.getRecipeRegion() + "','" + r.getImageURL() + "',"
-							+ r.getPrepTime() + "," + r.getCookTime() + "," + r.getServe() + ")",
+			PreparedStatement psRecipe = DBConnector.con.prepareStatement(
+					"INSERT INTO recipes (recName,recRegion,imageURL,prepTime,cookTime,serve) VALUES (?, ?, ?, ?, ?, ?)",
 					Statement.RETURN_GENERATED_KEYS);
-			ResultSet rsetRecipe = sRecipe.getGeneratedKeys();
+			PreparedStatement psIngredients = DBConnector.con.prepareStatement(
+					"INSERT INTO ingredients (recipe_id,ingredient_id,quantity,description) VALUES (?, ?, ?, ?)");
+			PreparedStatement psInstructions = DBConnector.con.prepareStatement(
+					"INSERT INTO instructions (recipe_id,instruction_id,description) VALUES (?, ?, ?)");
+			// Set basic info
+			psRecipe.setString(1, r.getRecipeName());
+			psRecipe.setString(2, r.getRecipeRegion());
+			psRecipe.setString(3, r.getImageURL());
+			psRecipe.setString(4, r.getPrepTime().toString());
+			psRecipe.setString(5, r.getCookTime().toString());
+			psRecipe.setString(6, r.getServe().toString());
+			psRecipe.executeUpdate();
+			ResultSet rsetRecipe = psRecipe.getGeneratedKeys();
 			if (rsetRecipe.next()) {
-				int rid = rsetRecipe.getInt(1);
+				Integer rid = rsetRecipe.getInt(1);
 				// Set ingredients
 				for (Ingredient ing : r.getIngredients()) {
-					sIngredients.executeUpdate(
-							"INSERT INTO ingredients (recipe_id,ingredient_id,quantity,description) VALUES (" + rid
-									+ "," + ing.getIngredientId() + "," + ing.getQuantity() + ",'" + ing.getDescription() + "')");
+					psIngredients.setString(1, rid.toString());
+					psIngredients.setString(2, ing.getIngredientId().toString());
+					psIngredients.setString(3, ing.getQuantity().toString());
+					psIngredients.setString(4, ing.getDescription());
+					psIngredients.executeUpdate();
 				}
 				// Set instructions
 				for (Instruction ins : r.getInstructions()) {
-					sInstructions
-							.executeUpdate("INSERT INTO instructions (recipe_id,instruction_id,description) VALUES ("
-									+ rid + "," + ins.getInstructionId() + ",'" + ins.getDescription() + "')");
+					psInstructions.setString(1, rid.toString());
+					psInstructions.setString(2, ins.getInstructionId().toString());
+					psInstructions.setString(3, ins.getDescription());
+					psInstructions.executeUpdate();
 				}
 			}
 			DBConnector.disconnectToDB();
 			return true;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -204,31 +225,42 @@ public class DBOperator {
 	public static boolean update(Recipe r) {
 		try {
 			DBConnector.connectToDB();
-			Statement sRecipe = DBConnector.con.createStatement();
-			Statement sIngredients = DBConnector.con.createStatement();
-			Statement sInstructions = DBConnector.con.createStatement();
+			PreparedStatement psRecipe = DBConnector.con.prepareStatement(
+					"UPDATE recipes SET recName = ?, recRegion = ?, imageURL = ?, prepTime = ?, cookTime = ?, serve = ? WHERE recipe_id = ?");
+			PreparedStatement psIngredients = DBConnector.con.prepareStatement(
+					"INSERT INTO ingredients (recipe_id,ingredient_id,quantity,description) VALUES (?, ?, ?, ?)");
+			PreparedStatement psInstructions = DBConnector.con.prepareStatement(
+					"INSERT INTO instructions (recipe_id,instruction_id,description) VALUES (?, ?, ?)");
 			// Set basic info
-			sRecipe.executeUpdate(
-					"UPDATE recipes SET recName = '" + r.getRecipeName() + "',recRegion = '" + r.getRecipeRegion()
-							+ "',imageURL = '" + r.getImageURL() + "',prepTime = " + r.getPrepTime() + ",cookTime = "
-							+ r.getCookTime() + ",serve = " + r.getServe() + " WHERE recipe_id = " + r.getRecipeId());
+			psRecipe.setString(1, r.getRecipeName());
+			psRecipe.setString(2, r.getRecipeRegion());
+			psRecipe.setString(3, r.getImageURL());
+			psRecipe.setString(4, r.getPrepTime().toString());
+			psRecipe.setString(5, r.getCookTime().toString());
+			psRecipe.setString(6, r.getServe().toString());
+			psRecipe.setString(7, r.getRecipeId().toString());
+			psRecipe.executeUpdate();
 			// Set ingredients
-			sIngredients.executeUpdate("DELETE FROM ingredients WHERE recipe_id = " + r.getRecipeId());
+			psIngredients.executeUpdate("DELETE FROM ingredients WHERE recipe_id = " + r.getRecipeId());
 			for (Ingredient ing : r.getIngredients()) {
-				sIngredients
-						.executeUpdate("INSERT INTO ingredients (recipe_id,ingredient_id,quantity,description) VALUES ("
-								+ r.getRecipeId() + "," + ing.getIngredientId() + "," + ing.getQuantity() + ",'"
-								+ ing.getDescription() + "')");
+				psIngredients.setString(1, r.getRecipeId().toString());
+				psIngredients.setString(2, ing.getIngredientId().toString());
+				psIngredients.setString(3, ing.getQuantity().toString());
+				psIngredients.setString(4, ing.getDescription());
+				psIngredients.executeUpdate();
 			}
 			// Set instructions
-			sInstructions.executeUpdate("DELETE FROM instructions WHERE recipe_id = " + r.getRecipeId());
+			psInstructions.executeUpdate("DELETE FROM instructions WHERE recipe_id = " + r.getRecipeId());
 			for (Instruction ins : r.getInstructions()) {
-				sInstructions.executeUpdate("INSERT INTO instructions (recipe_id,instruction_id,description) VALUES ("
-						+ r.getRecipeId() + "," + ins.getInstructionId() + ",'" + ins.getDescription() + "')");
+				psInstructions.setString(1, r.getRecipeId().toString());
+				psInstructions.setString(2, ins.getInstructionId().toString());
+				psInstructions.setString(3, ins.getDescription());
+				psInstructions.executeUpdate();
 			}
 			DBConnector.disconnectToDB();
 			return true;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
@@ -242,11 +274,13 @@ public class DBOperator {
 	public static boolean delete(int rid) {
 		try {
 			DBConnector.connectToDB();
-			Statement sRecipe = DBConnector.con.createStatement();
-			sRecipe.executeUpdate("DELETE FROM recipes WHERE recipe_id = " + rid);
+			PreparedStatement psRecipe = DBConnector.con.prepareStatement("DELETE FROM recipes WHERE recipe_id = ?");
+			psRecipe.setString(1, String.valueOf(rid));
+			psRecipe.executeUpdate();
 			DBConnector.disconnectToDB();
 			return true;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			return false;
 		}
 	}

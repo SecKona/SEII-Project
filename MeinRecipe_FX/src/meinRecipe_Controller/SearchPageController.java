@@ -65,7 +65,7 @@ public class SearchPageController {
 		if (DBOperator.searchByName(this.recipeList, inputName.getText())) {
 			fillinRecipeTable(this.recipeList);
 		} else {
-			showAlert(Alert.AlertType.ERROR, "Error", "Search failed", "Database connection failed or illegal recipe name!");
+			showAlert(Alert.AlertType.ERROR, "Error", "Search failed", "Database connection lost!");
 			return;
 		}
 	}
@@ -81,7 +81,7 @@ public class SearchPageController {
 		if (DBOperator.searchByRegion(this.recipeList, regionChoices.getSelectionModel().getSelectedItem())) {
 			fillinRecipeTable(this.recipeList);
 		} else {
-			showAlert(Alert.AlertType.ERROR, "Error", "Search failed", "Database connection failed or illegal recipe region!");
+			showAlert(Alert.AlertType.ERROR, "Error", "Search failed", "Database connection lost!");
 			return;
 		}
 	}
@@ -103,7 +103,7 @@ public class SearchPageController {
 							"The selected recipe is deleted");
 					fillinRecipeTable(recipeList);
 				} else {
-					showAlert(Alert.AlertType.ERROR, "Error", "Delete failed", "Unable not delete this recipe!");
+					showAlert(Alert.AlertType.ERROR, "Error", "Delete failed", "Unable to delete this recipe!");
 					return;
 				}
 			}
@@ -111,6 +111,22 @@ public class SearchPageController {
 			showAlert(Alert.AlertType.ERROR, "Error", "None of recipe is selected",
 					"Please select a recipe to delete!");
 		}
+	}
+
+	@FXML
+	/**
+	 * Search all existing recipes display searched list in tableView, is called
+	 * when corresponding button is clicked
+	 * 
+	 * @param event javaFX event
+	 */
+	void searchAllClicked(ActionEvent event) {
+		if (!DBOperator.searchAll(recipeList)) {
+			showAlert(Alert.AlertType.ERROR, "Error", "Failed to load all existing recipe",
+					"Recipe list will be empty");
+			return;
+		}
+		fillinRecipeTable(recipeList);
 	}
 
 	@FXML
@@ -161,12 +177,6 @@ public class SearchPageController {
 		ObservableList<String> choiceList = FXCollections.observableArrayList("EU", "SEA", "SA", "LA", "A", "Others");
 		this.regionChoices.setValue("Others");
 		this.regionChoices.setItems(choiceList);
-		if (!DBOperator.searchAll(recipeList)) {
-			showAlert(Alert.AlertType.ERROR, "Error", "Failed to load all existing recipe",
-					"Recipe list will be empty");
-			return;
-		}
-		fillinRecipeTable(recipeList);
 	}
 
 	/**

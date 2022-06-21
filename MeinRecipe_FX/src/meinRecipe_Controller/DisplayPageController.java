@@ -88,10 +88,10 @@ public class DisplayPageController {
 	 * @throws IOException java IOException
 	 */
 	void deleteRecipe(ActionEvent event) throws IOException {
-		if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "The selected recipe will be deleted",
-				"Are you sure to delete this recipe?")) {
+		if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "This recipe will be deleted",
+				"Are you sure to delete it?")) {
 			if (DBOperator.delete(viewingRecipe.getRecipeId())) {
-				showAlert(Alert.AlertType.INFORMATION, "Info", "Delete successful", "The selected recipe is deleted");
+				showAlert(Alert.AlertType.INFORMATION, "Info", "Delete successful", "This recipe is deleted");
 				Parent searchPageScene = FXMLLoader.load(getClass().getResource("/meinRecipe_View/SearchPage.fxml"));
 				Scene mainPage = new Scene(searchPageScene);
 
@@ -100,7 +100,7 @@ public class DisplayPageController {
 				mainWindow.setTitle("MeinRecipe - Search page");
 				mainWindow.setScene(mainPage);
 			} else {
-				showAlert(Alert.AlertType.ERROR, "Error", "Delete failed", "Unable not delete this recipe!");
+				showAlert(Alert.AlertType.ERROR, "Error", "Delete failed", "Unable to delete this recipe!");
 				return;
 			}
 		}

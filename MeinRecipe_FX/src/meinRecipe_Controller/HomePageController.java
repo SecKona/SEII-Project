@@ -18,7 +18,7 @@ import meinRecipe_Model.Recipe;
  *
  */
 public class HomePageController {
-
+	
 	@FXML
 	/**
 	 * Change scene to search page, is called when corresponding button is clicked

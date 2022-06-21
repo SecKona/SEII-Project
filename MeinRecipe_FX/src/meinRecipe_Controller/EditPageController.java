@@ -24,6 +24,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
@@ -79,6 +80,9 @@ public class EditPageController {
 
 	@FXML
 	private TextField cookTime;
+
+	@FXML
+	private Button deleteRecipeButton;
 
 	private static Recipe editingRecipe;
 
@@ -236,7 +240,7 @@ public class EditPageController {
 	 * @throws IOException java IOException
 	 */
 	void saveClicked(ActionEvent event) throws IOException {
-		if (this.recipeName.getText() == null || this.recipeName.getText() == "Default") {
+		if (this.recipeName.getText() == null) {
 			showAlert(Alert.AlertType.ERROR, "Error", "Null input: recipe name", "Please input the recipe name!");
 			return;
 		} else {
@@ -245,19 +249,27 @@ public class EditPageController {
 
 		editingRecipe.setRecipeRegion(this.regionChoices.getSelectionModel().getSelectedItem());
 
-		if (checkInput(this.prepTime, "[1-9][0-9]{0,2}")) {
+		if (editingRecipe.getImageURL().equals("/recipeImage/default.jpg")) {
+			if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "The recipe image is default",
+					"Are you sure to leave it as default and save?")) {
+			} else {
+				return;
+			}
+		}
+
+		if (checkInput(this.prepTime, "[0-9]{0,3}")) {
 			editingRecipe.setPrepTime(Integer.valueOf(this.prepTime.getText()));
 		} else {
 			showAlert(Alert.AlertType.ERROR, "Error", "Illegal input: preparation time",
-					"Please input a positive number [1~999]!");
+					"Please input a positive number [0~999]!");
 			return;
 		}
 
-		if (checkInput(this.cookTime, "[1-9][0-9]{0,2}")) {
+		if (checkInput(this.cookTime, "[0-9]{0,3}")) {
 			editingRecipe.setCookTime(Integer.valueOf(this.cookTime.getText()));
 		} else {
 			showAlert(Alert.AlertType.ERROR, "Error", "Illegal input: cook time",
-					"Please input a positive number [1~999]!");
+					"Please input a positive number [0~999]!");
 			return;
 		}
 
@@ -295,16 +307,14 @@ public class EditPageController {
 			if (DBOperator.update(editingRecipe)) {
 				showAlert(Alert.AlertType.INFORMATION, "Info", "Update successful", "The recipe is updated");
 			} else {
-				showAlert(Alert.AlertType.ERROR, "Error", "Update failed",
-						"Database connection failed or the recipe have illegal text!");
+				showAlert(Alert.AlertType.ERROR, "Error", "Update failed", "Database connection lost!");
 				return;
 			}
 		} else {
 			if (DBOperator.insert(editingRecipe)) {
 				showAlert(Alert.AlertType.INFORMATION, "Info", "Save successful", "The recipe is saved");
 			} else {
-				showAlert(Alert.AlertType.ERROR, "Error", "Save failed",
-						"Database connection failed or the recipe have illegal text!");
+				showAlert(Alert.AlertType.ERROR, "Error", "Save failed", "Database connection lost!");
 				return;
 			}
 		}
@@ -317,6 +327,47 @@ public class EditPageController {
 
 		mainWindow.setTitle("MeinRecipe - Display page");
 		mainWindow.setScene(mainPage);
+	}
+
+	@FXML
+	/**
+	 * Delete the editing recipe in this scene and return to search page, is called
+	 * when corresponding button is clicked
+	 * 
+	 * @param event javaFX event
+	 * @throws IOException java IOException
+	 */
+	void deleteRecipe(ActionEvent event) throws IOException {
+		if (editingRecipe.getRecipeId() == null) {
+			if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "This recipe will not be saved",
+					"Are you sure to leave it unsaved and return to home page?")) {
+				Parent homePageScene = FXMLLoader.load(getClass().getResource("/meinRecipe_View/HomePage.fxml"));
+				Scene homePage = new Scene(homePageScene);
+				Stage mainWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+				mainWindow.setTitle("MeinRecipe - Home page");
+				mainWindow.setScene(homePage);
+				return;
+			} else {
+				return;
+			}
+		}
+		if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "This recipe will be deleted",
+				"Are you sure to delete it?")) {
+			if (DBOperator.delete(editingRecipe.getRecipeId())) {
+				showAlert(Alert.AlertType.INFORMATION, "Info", "Delete successful", "This recipe is deleted");
+				Parent searchPageScene = FXMLLoader.load(getClass().getResource("/meinRecipe_View/SearchPage.fxml"));
+				Scene mainPage = new Scene(searchPageScene);
+
+				Stage mainWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+				mainWindow.setTitle("MeinRecipe - Search page");
+				mainWindow.setScene(mainPage);
+			} else {
+				showAlert(Alert.AlertType.ERROR, "Error", "Delete failed", "Unable to delete this recipe!");
+				return;
+			}
+		}
 	}
 
 	@FXML
