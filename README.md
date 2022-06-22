@@ -39,7 +39,7 @@
 * Edit page  
 ![@ MY(XSQGZ7$7GFOLM7UD53](https://user-images.githubusercontent.com/107774939/175012580-46941b33-53da-4339-850f-beb89d4f4750.png)
 
-### Tutorial:
+### Special function hint:
 Most of interface in application have a "tooltip", pause the cursor over the control to get the action prompt
 * Home page  
 Click "Start to explore" to turn to search page, Click "I'm a chef" to turn to edit page
@@ -48,7 +48,7 @@ Input a recipe name or select a recipe region and click "suchen" to search, or c
 * Display page  
 Input a serve number and click "Calculate" to calculate ingredient amount
 * Edit page  
-Table-like edit mode: Double click a cell to edit, press "ENTER" to commit edit
+Table-like edit mode: Double click a table cell to edit, press "ENTER" to commit edit
 
 ## Maintianer
 @SecKona
