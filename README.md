@@ -61,6 +61,6 @@ Table-like edit mode: Double click a table cell to edit, press "ENTER" to commit
 ## Contributing
 
 ### Contributors
-Memembers in Group C:  
-Klara all scene building and report writing  
-SecKona all about coding  
+#### Memembers in Group C:  
+* Klara all scene building and report writing  
+* SecKona all about coding  
