@@ -26,7 +26,7 @@ https://help.fasthosts.co.uk/app/answers/detail/a_id/2133/~/back-up-and-restore-
 
 #### Import in eclipse
 * Download file "MeinRecipe.zip"
-* Import the project as project from archive (File-->Import-->General-->Projects from directory or Archive-->Archive), all needed library should be automaticly set.
+* Import the project as project from archive (File-->Import-->General-->Projects from Folder or Archive-->Archive), all needed library should be automaticly set.
 * The entrance of this project is **"src/meinRecipe_Main/Main.java"**, find it and Run as Java Application
 
 #### Design pattern
