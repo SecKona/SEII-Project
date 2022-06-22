@@ -23,13 +23,13 @@
 * The entrance of this project is **"src/meinRecipe_Main/Main.java"**, find it and Run as Java Application
 ## Usage
 ### GUI:
-* Home page
+* Home page  
 ![`7~SY1D4{B33ALT3`NND8ZI](https://user-images.githubusercontent.com/107774939/175012529-f5fe945e-5fa0-40ec-9511-54ad34eae42b.png)
-* Search page
+* Search page  
 ![84LZL)0X }1D`_U)XJ~94 Q](https://user-images.githubusercontent.com/107774939/175012553-4fb03ec0-530c-4a90-8c6f-9fcefb7abcd1.png)
-* Display page
+* Display page  
 ![A3CM J}DP8Q@J~7S$FT @ 0](https://user-images.githubusercontent.com/107774939/175012569-b7f0e5b6-0f93-4389-ab29-e7974dc6858d.png)
-* Edit page
+* Edit page  
 ![@ MY(XSQGZ7$7GFOLM7UD53](https://user-images.githubusercontent.com/107774939/175012580-46941b33-53da-4339-850f-beb89d4f4750.png)
 ## Maintianer
 @SecKona
