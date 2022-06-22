@@ -9,9 +9,17 @@
 * Database: MySQL Server 8.0
 * Others: Eclipse & JavaFX Scene builder 2.0, MySQL Workbench 8.0 SE
 ### Setup
-example for eclipse
+#### Setup MySQL
+* Download MySQL on Windows Installer Community https://dev.mysql.com/downloads/installer/
+* Execute the installer and have a custom installation
+* Choose the packages MySQL Server, MySQL Workbench, Connector/J, and MySQL Documentation for installation and apply these settings.
+#### Setup the MySQL server
+* Choose a TCP/IP port (take the default port)
+* Choose a root password
+#### Import in eclipse
 * Clone or download this project
-* Import the project as existing project (File-->Import-->General--> Existing Project into Workspace)
+* Import the project as existing project (File-->Import-->General--> Existing Project into Workspace), all needed library should be automaticly set.
+* 
 * The entrance of this project is **"src/meinRecipe_Main/Main.java"**, find it and Run as Java Application
 ## Usage
 
