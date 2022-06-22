@@ -27,6 +27,9 @@
 * Import the project as existing project (File-->Import-->General--> Existing Project into Workspace), all needed library should be automaticly set.
 * The entrance of this project is **"src/meinRecipe_Main/Main.java"**, find it and Run as Java Application
 
+#### Design pattern
+* MVC
+
 ## Usage
 
 ### GUI:
