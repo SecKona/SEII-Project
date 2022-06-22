@@ -53,7 +53,7 @@ Input a recipe name or select a recipe region and click "suchen" to search, or c
 * Display page  
 Input a serve number and click "Calculate" to calculate ingredient amount
 * Edit page  
-Table-like edit mode: Double click a table cell to edit, press "ENTER" to commit edit
+Table-like edit mode: Double click a table cell to edit, press "ENTER" on keyboard to commit edit
 
 ## Maintianer
 @SecKona https://github.com/SecKona
