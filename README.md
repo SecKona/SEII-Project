@@ -25,8 +25,8 @@ https://help.fasthosts.co.uk/app/answers/detail/a_id/2133/~/back-up-and-restore-
 * Apply Database model: If you want to set a database without any existing data, open DB model file (**"MeinRecipe_FX/DataBase/cookbook.mwb"**) in MySQL Workbench (File-->Open Model) and apply it to database (Database-->Forward engineering, keep clicking "Next" until finished)
 
 #### Import in eclipse
-* Clone or download this project
-* Import the project as existing project (File-->Import-->General--> Existing Project into Workspace), all needed library should be automaticly set.
+* Download file "MeinRecipe.zip"
+* Import the project as project from archive (File-->Import-->General-->Projects from directory or Archive-->Archive), all needed library should be automaticly set.
 * The entrance of this project is **"src/meinRecipe_Main/Main.java"**, find it and Run as Java Application
 
 #### Design pattern
