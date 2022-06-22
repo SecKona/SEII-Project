@@ -17,7 +17,7 @@
 * Execute the installer and have a custom installation
 * Choose the packages MySQL Server, MySQL Workbench, Connector/J, and MySQL Documentation for installation and apply these settings.
 
-#### Setup the MySQL server
+#### Setup MySQL server
 * Choose a TCP/IP port (take the default port)
 * Choose a root password
 * Import the DB dump: Import DB dump (**"MeinRecipe_FX/DataBase/cookbook.sql"**) in MySQL Workbench according to this tutorial https://help.fasthosts.co.uk/app/answers/detail/a_id/2133/~/back-up-and-restore-mysql-databases-using-mysql-workbench-6
