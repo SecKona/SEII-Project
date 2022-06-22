@@ -62,5 +62,5 @@ Table-like edit mode: Double click a table cell to edit, press "ENTER" to commit
 
 ### Contributors
 #### Memembers in Group C:  
-* Klara -> all scene building and report writing  
-* SecKona -> all about coding  
+* Klara -> all about scene building, UML diagram drawing and report writing  
+* SecKona -> all about coding and javadoc writing  
