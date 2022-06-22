@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="meinRecipe_Controller.SearchPageController">
+   <center>
+      <SplitPane dividerPositions="0.32588699080157685" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="763.0" BorderPane.alignment="CENTER">
+         <items>
+            <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="351.0" prefWidth="248.0" style="-fx-background-color: #e6e6ff;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="14.0" prefHeight="36.0" prefWidth="203.0" text="Chef für Heute" textAlignment="CENTER" textFill="#69c973">
+                     <font>
+                        <Font name="Segoe Print Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="140.0" fitWidth="180.0" layoutX="34.0" layoutY="61.0">
+                     <image>
+                        <Image url="@../../image/chef5.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label contentDisplay="CENTER" layoutX="24.0" layoutY="226.0" prefHeight="30.0" prefWidth="200.0" text="Search by name" textFill="#312e32">
+                     <font>
+                        <Font name="Segoe Print Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="inputName" layoutX="28.0" layoutY="264.0" prefHeight="35.0" prefWidth="120.0" promptText="Input Name">
+                     <font>
+                        <Font name="Segoe Print" size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                  </TextField>
+                  <Button layoutX="164.0" layoutY="268.0" mnemonicParsing="false" onAction="#searchByName" prefHeight="28.0" prefWidth="70.0" text="Suchen">
+                     <font>
+                        <Font name="Cambria" size="14.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0" startX="0.4387755102040817">
+                           <stops>
+                              <Stop color="#a158e1" />
+                              <Stop color="#a158e1" offset="0.0049504950495049506" />
+                              <Stop color="#a25ae0" offset="0.1997079892321029" />
+                              <Stop color="#e13232" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="24.0" layoutY="409.0" prefHeight="30.0" prefWidth="200.0" text="Search by region" textFill="#312e32" AnchorPane.topAnchor="409.0">
+                     <font>
+                        <Font name="Segoe Print Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="regionChoices" layoutX="28.0" layoutY="445.0" opacity="0.67" prefHeight="35.0" prefWidth="120.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></ChoiceBox>
+                  <Button layoutX="164.0" layoutY="449.0" mnemonicParsing="false" onAction="#searchByRegion" prefHeight="28.0" prefWidth="70.0" text="Suchen">
+                     <font>
+                        <Font name="Cambria" size="14.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0" startX="0.4387755102040817">
+                           <stops>
+                              <Stop color="#a158e1" />
+                              <Stop color="#a158e1" offset="0.0049504950495049506" />
+                              <Stop color="#a25ae0" offset="0.1997079892321029" />
+                              <Stop color="#e13232" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="505.0">
+               <children>
+                  <ImageView fitHeight="600.0" fitWidth="505.0" opacity="0.65">
+                     <image>
+                        <Image url="@../../image/vegetab.jpg" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="38.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search for your desire!" textAlignment="CENTER" wrappingWidth="428.45703125" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="38.54296875" AnchorPane.topAnchor="14.05859375">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#2f2be3" />
+                              <Stop color="#2f2be3" offset="0.0049504950495049506" />
+                              <Stop color="#f01f11" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                     <font>
+                        <Font name="Segoe Print Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <TableView fx:id="recipeTable" layoutX="20.0" layoutY="96.0" prefHeight="488.0" prefWidth="465.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="96.0">
+                     <columns>
+                        <TableColumn fx:id="tableNameSP" prefWidth="194.0" text="Name" />
+                        <TableColumn fx:id="tableRegionSP" prefWidth="165.0" text="Region" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <tooltip>
+                        <Tooltip text="Select a recipe to make more operation" />
+                     </tooltip>
+                  </TableView>
+                  <Button layoutX="420.0" layoutY="60.0" mnemonicParsing="false" onAction="#viewClicked" style="-fx-border-color: ff00ff; -fx-background-radius: 10; -fx-border-radius: 10;" text="Detail">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <tooltip>
+                        <Tooltip text="Select a recipe in table to view more" />
+                     </tooltip></Button>
+                  <Button layoutX="20.0" layoutY="60.0" mnemonicParsing="false" onAction="#deleteClicked" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: ff00ff;" text="Delete">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <tooltip>
+                        <Tooltip text="Select a recipe in table to delete" />
+                     </tooltip></Button>
+                  <Button layoutX="335.0" layoutY="60.0" mnemonicParsing="false" onAction="#searchAllClicked" style="-fx-border-color: ff00ff; -fx-background-radius: 10; -fx-border-radius: 10;" text="View all">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <tooltip>
+                        <Tooltip text="View all existing recipes" />
+                     </tooltip>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </center>
+   <right>
+      <Pane prefHeight="411.0" prefWidth="37.0" style="-fx-background-color: #b8bfd8;" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="1.0" layoutY="1.0" mnemonicParsing="false" onAction="#returnHome" prefHeight="35.0" prefWidth="35.0">
+               <font>
+                  <Font size="7.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0">
+                     <image>
+                        <Image url="@../../image/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Back to home page">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Tooltip>
+               </tooltip>
+            </Button>
+         </children>
+      </Pane>
+   </right>
+</BorderPane>

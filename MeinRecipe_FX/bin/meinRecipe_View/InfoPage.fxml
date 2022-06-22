@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="meinRecipe_Controller.InfoPageController">
+    <right>
+        <Pane prefHeight="411.0" prefWidth="37.0" style="-fx-background-color: #b8bfd8;" BorderPane.alignment="CENTER">
+            <children>
+                <Button layoutX="1.0" layoutY="1.0" mnemonicParsing="false" onAction="#backClicked" prefHeight="35.0" prefWidth="35.0">
+                    <font>
+                        <Font size="7.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../image/undo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <tooltip>
+                  <Tooltip text="Back to home page">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Tooltip>
+               </tooltip>
+                </Button>
+            </children>
+        </Pane>
+    </right>
+   <left>
+          <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="703.0" prefWidth="244.0" style="-fx-background-color: #e6e6ff;" BorderPane.alignment="CENTER">
+              <children>
+                  <ImageView fitHeight="140.0" fitWidth="180.0" layoutX="32.0" layoutY="168.0">
+                      <image>
+                          <Image url="@../../image/infoBackground.jpg" />
+                      </image>
+                  </ImageView>
+            <Text layoutX="35.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Information of digital cookbook" textAlignment="CENTER" wrappingWidth="173.45703125">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#2f2be3" />
+                        <Stop color="#2f2be3" offset="0.0049504950495049506" />
+                        <Stop color="#f01f11" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+               <font>
+                  <Font name="Segoe Print Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text layoutX="12.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="What?" textAlignment="CENTER" wrappingWidth="220.45703125">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#2f2be3" />
+                        <Stop color="#2f2be3" offset="0.0049504950495049506" />
+                        <Stop color="#f01f11" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+               <font>
+                  <Font name="Segoe Print Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text layoutX="12.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How?" textAlignment="CENTER" wrappingWidth="220.45703125">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#2f2be3" />
+                        <Stop color="#2f2be3" offset="0.0049504950495049506" />
+                        <Stop color="#f01f11" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+               <font>
+                  <Font name="Segoe Print Bold" size="24.0" />
+               </font>
+            </Text>
+              </children>
+          </AnchorPane>
+   </left>
+   <center>
+      <ScrollPane prefHeight="600.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="595.0" prefWidth="510.0">
+               <children>
+                        <Text layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="What is this cookbook?" textAlignment="CENTER" wrappingWidth="283.45703125" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="202.54296875" AnchorPane.topAnchor="0.05859375">
+                            <fill>
+                                <LinearGradient endX="1.0" endY="1.0">
+                                    <stops>
+                                        <Stop color="#2f2be3" />
+                                        <Stop color="#2f2be3" offset="0.0049504950495049506" />
+                                        <Stop color="#f01f11" offset="1.0" />
+                                    </stops>
+                                </LinearGradient>
+                            </fill>
+                            <font>
+                                <Font name="Segoe Print Bold" size="24.0" />
+                            </font>
+                        </Text>
+                  <TextArea layoutX="15.0" layoutY="42.0" prefHeight="177.0" prefWidth="467.0" text="The Digital cookbook is invented to assist people who are annoyed by always having the necessity of writing grocery lists and carrying everything home from the supermarket. And it also resolves the confusion of having a few ingredients left but can’t imagine how to create something taste based on the existing ingredients." wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextArea>
+                  <Text layoutX="14.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How to use this cookbook?" textAlignment="CENTER" wrappingWidth="326.45703125" AnchorPane.topAnchor="219.05859375">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#2f2be3" />
+                              <Stop color="#2f2be3" offset="0.0049504950495049506" />
+                              <Stop color="#f01f11" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                     <font>
+                        <Font name="Segoe Print Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <TextArea layoutX="15.0" layoutY="261.0" prefHeight="177.0" prefWidth="467.0" text="You can store your recipes inside this digital cookbook. Although in the original version of this cookbook, due to the app is connected to local database, therefore, once you download this cookbook for the very first time, there might be an empty list of dishes if local database contains none of recipe’s lists. However, you can create your own recipes inside to make it an individual cookbook after entering your own recipes records. To be specific, you can directly create a brand-new recipe list by pressing the button” I’m a chef” at the homepage and input some of the critical information about the dishes, including its name, cook time, and preparation time. Ingredients and instructions can be latter added. It is also recommended that the you can also include a picture of the dishes making them more attractive and vivid.&#10;After that, you can latter search for your recorded recipes by pressing the button &quot;Start to explore&quot; button, and you have a chance to search for your recipes by names or by regions. After selecting the specific recipe, pressing &quot;view&quot; button to check the detailed information of the recipe.&#10;When viewing the recipe, you can also edit this recipe." wrapText="true" AnchorPane.topAnchor="261.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextArea>
+                  <Text layoutX="15.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="What is the shining point?" textAlignment="CENTER" wrappingWidth="322.45703125" AnchorPane.topAnchor="438.05859375">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#2f2be3" />
+                              <Stop color="#2f2be3" offset="0.0049504950495049506" />
+                              <Stop color="#f01f11" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                     <font>
+                        <Font name="Segoe Print Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <TextArea layoutX="15.0" layoutY="482.0" prefHeight="100.0" prefWidth="467.0" text="In this cookbook, an additional classification has been added, region. You can enter the region of the recipe or search recorded recipes by region." wrapText="true" AnchorPane.topAnchor="482.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextArea>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </center>
+</BorderPane>
