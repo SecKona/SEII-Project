@@ -77,18 +77,10 @@ public class Recipe {
 	 * @param serveNum the typed-in serveNum to calculate
 	 */
 	public void calIngredients(Integer serveNum) {
-		if (serveNum % this.serve == 0) {
-			int cur = 0;
-			while (cur < ingredients.size()) {
-				ingredients.get(cur).setQuantity(ingredients.get(cur).getQuantity() * serveNum);
-				cur++;
-			}
-		} else {
-			int cur = 0;
-			while (cur < ingredients.size()) {
-				ingredients.get(cur).setQuantity(ingredients.get(cur).getQuantity() * serveNum / this.serve);
-				cur++;
-			}
+		int cur = 0;
+		while (cur < ingredients.size()) {
+			ingredients.get(cur).setQuantity(ingredients.get(cur).getQuantity() * serveNum / this.serve);
+			cur++;
 		}
 		this.setServe(serveNum);
 	}
