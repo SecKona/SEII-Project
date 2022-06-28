@@ -30,7 +30,7 @@ public class Main extends Application {
 		mainWindow.getIcons().add(new Image("/icon/chef5.jpg"));
 		mainWindow.setResizable(false);
 		mainWindow.setOnCloseRequest(event -> {
-			if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "All work will leave unsaved",
+			if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "",
 					"Are you sure to quit?")) {
 				mainWindow.close();
 			} else {
