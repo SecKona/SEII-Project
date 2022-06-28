@@ -39,7 +39,7 @@ CREATE TABLE `ingredients` (
 
 LOCK TABLES `ingredients` WRITE;
 /*!40000 ALTER TABLE `ingredients` DISABLE KEYS */;
-INSERT INTO `ingredients` VALUES (7,1,500,'g Rinderfleisch'),(8,1,500,'g Programmer`s hair'),(9,1,500,'g Rice'),(9,2,1,'Fox');
+INSERT INTO `ingredients` VALUES (7,1,1,'pound lean ground beef'),(7,2,5,'cloves garlic, crushed'),(7,3,1,'tablespoon freshly grated ginger'),(7,4,2,'teaspoons toasted sesame oil'),(7,5,1,'cup reduced-sodium soy sauce'),(7,6,1,'cup light brown sugar'),(7,7,1,'teaspoon crushed red pepper'),(7,8,6,'green onions, chopped, divided'),(7,9,4,'cups hot cooked brown rice'),(7,10,1,'tablespoon toasted sesame seeds'),(8,1,1,'cup raw peas'),(8,2,1,'lemon, juiced'),(8,3,1,'salt and ground black pepper to taste'),(9,1,6,'hard-cooked eggs'),(9,2,2,'tablespoons mayonnaise'),(9,3,1,'teaspoon white sugar'),(9,4,1,'teaspoon white vinegar'),(9,5,1,'teaspoon prepared mustard'),(9,6,1,'teaspoon salt'),(9,7,1,'tablespoon finely chopped onion'),(9,8,1,'tablespoon finely chopped celery'),(9,9,1,'pinch paprika, or to taste');
 /*!40000 ALTER TABLE `ingredients` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -66,7 +66,7 @@ CREATE TABLE `instructions` (
 
 LOCK TABLES `instructions` WRITE;
 /*!40000 ALTER TABLE `instructions` DISABLE KEYS */;
-INSERT INTO `instructions` VALUES (7,1,'Grillen Sie der Rinderfleisch'),(7,2,'Dann fiertig'),(8,1,'Programmer`s hair -1'),(8,2,'Programmer`s hair -1'),(8,3,'Programmer`s hair -1'),(9,1,'This is just a bow of Rice');
+INSERT INTO `instructions` VALUES (7,1,'Heat a large skillet over medium-high heat.'),(7,2,'Add beef and cook, stirring and crumbling into small pieces until browned, 5 to 7 minutes.'),(7,3,'Drain excess grease.'),(7,4,'Stir in garlic, ginger, and sesame oil and cook until fragrant, about 2 minutes.'),(7,5,'Stir in soy sauce, brown sugar, and red pepper.'),(7,6,'Cook until beef absorbs some sauce, about 7 minutes.'),(7,7,'Add 1/2 of chopped green onions.'),(7,8,'Serve over hot cooked rice; garnish with sesame seeds and remaining green onions.'),(8,1,'Mix peas, lemon juice, salt, and pepper together in a bowl.'),(9,1,'Slice eggs in half lengthwise and remove yolks; set whites aside.'),(9,2,'Mash yolks with a fork in a small bowl.'),(9,3,'Stir in mayonnaise, sugar, vinegar, mustard, salt, onion, and celery; mix well.'),(9,4,'Stuff or pipe egg yolk mixture into egg whites.'),(9,5,'Sprinkle with paprika.'),(9,6,'Refrigerate until serving.');
 /*!40000 ALTER TABLE `instructions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -97,7 +97,7 @@ CREATE TABLE `recipes` (
 
 LOCK TABLES `recipes` WRITE;
 /*!40000 ALTER TABLE `recipes` DISABLE KEYS */;
-INSERT INTO `recipes` VALUES (7,'Grill','EU','/recipeImage/default.jpg',10,10,1),(8,'Programmer`s hair','Others','/recipeImage/A (16).jpg',10,20,2),(9,'A bow of Rice','SA','/recipeImage/A (16).jpg',1,1,1);
+INSERT INTO `recipes` VALUES (7,'Easy Korean Ground Beef Bowl','SEA','/recipeImage/image2.jpg',10,15,1),(8,'Lemon Pea Salad','Others','/recipeImage/image1.jpg',10,10,1),(9,'Simple Deviled Eggs','SA','/recipeImage/image.jpg',15,15,1);
 /*!40000 ALTER TABLE `recipes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -110,4 +110,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-23  2:58:51
+-- Dump completed on 2022-06-28 21:14:56
