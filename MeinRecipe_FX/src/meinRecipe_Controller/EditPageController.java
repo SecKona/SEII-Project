@@ -325,6 +325,14 @@ public class EditPageController {
 		Scene mainPage = new Scene(recipeDisplayScene);
 		Stage mainWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
+		mainWindow.setOnCloseRequest(e -> {
+			if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "",
+					"Are you sure to quit?")) {
+				mainWindow.close();
+			} else {
+				e.consume();
+			}
+		});
 		mainWindow.setTitle("MeinRecipe - Display page");
 		mainWindow.setScene(mainPage);
 	}
@@ -345,6 +353,14 @@ public class EditPageController {
 				Scene homePage = new Scene(homePageScene);
 				Stage mainWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
+				mainWindow.setOnCloseRequest(e -> {
+					if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "",
+							"Are you sure to quit?")) {
+						mainWindow.close();
+					} else {
+						e.consume();
+					}
+				});
 				mainWindow.setTitle("MeinRecipe - Home page");
 				mainWindow.setScene(homePage);
 				return;
@@ -361,6 +377,14 @@ public class EditPageController {
 
 				Stage mainWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
+				mainWindow.setOnCloseRequest(e -> {
+					if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "",
+							"Are you sure to quit?")) {
+						mainWindow.close();
+					} else {
+						e.consume();
+					}
+				});
 				mainWindow.setTitle("MeinRecipe - Search page");
 				mainWindow.setScene(mainPage);
 			} else {
@@ -384,6 +408,14 @@ public class EditPageController {
 			Scene homePage = new Scene(homePageScene);
 			Stage mainWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
+			mainWindow.setOnCloseRequest(e -> {
+				if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "",
+						"Are you sure to quit?")) {
+					mainWindow.close();
+				} else {
+					e.consume();
+				}
+			});
 			mainWindow.setTitle("MeinRecipe - Home page");
 			mainWindow.setScene(homePage);
 		}
@@ -407,6 +439,14 @@ public class EditPageController {
 				Scene mainPage = new Scene(DisplayPageScene);
 				Stage mainWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
+				mainWindow.setOnCloseRequest(e -> {
+					if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "",
+							"Are you sure to quit?")) {
+						mainWindow.close();
+					} else {
+						e.consume();
+					}
+				});
 				mainWindow.setTitle("MeinRecipe - Display page");
 				mainWindow.setScene(mainPage);
 			} else {
@@ -414,6 +454,14 @@ public class EditPageController {
 				Scene mainPage = new Scene(homePageScene);
 				Stage mainWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
+				mainWindow.setOnCloseRequest(e -> {
+					if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "",
+							"Are you sure to quit?")) {
+						mainWindow.close();
+					} else {
+						e.consume();
+					}
+				});
 				mainWindow.setTitle("MeinRecipe - Home page");
 				mainWindow.setScene(mainPage);
 			}

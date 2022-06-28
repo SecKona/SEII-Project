@@ -1,6 +1,7 @@
 package meinRecipe_Controller;
 
 import java.io.IOException;
+import java.util.Optional;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,6 +9,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import meinRecipe_Model.Recipe;
 
@@ -49,6 +53,14 @@ public class HomePageController {
 		Scene mainPage = new Scene(editPageScene);
 		Stage mainWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
+		mainWindow.setOnCloseRequest(e -> {
+			if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "All work will be leave unsaved",
+					"Are you sure to quit?")) {
+				mainWindow.close();
+			} else {
+				e.consume();
+			}
+		});
 		mainWindow.setTitle("MeinRecipe - Edit page");
 		mainWindow.setScene(mainPage);
 	}
@@ -69,4 +81,25 @@ public class HomePageController {
 		mainWindow.setScene(mainPage);
 	}
 
+	/**
+	 * A customized method, show alert according to given settings
+	 * 
+	 * @param alertType   alert type
+	 * @param title       alert title
+	 * @param headerText  alert header text
+	 * @param contentText alert content text
+	 * @return if user confirm or not
+	 */
+	public boolean showAlert(AlertType alertType, String title, String headerText, String contentText) {
+		Alert a = new Alert(alertType);
+		a.setTitle(title);
+		a.setHeaderText(headerText);
+		a.setContentText(contentText);
+		Optional<ButtonType> result = a.showAndWait();
+		if (result.isPresent() && result.get() == ButtonType.OK) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

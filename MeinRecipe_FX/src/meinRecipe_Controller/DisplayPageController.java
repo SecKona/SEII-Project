@@ -75,6 +75,14 @@ public class DisplayPageController {
 
 		Stage mainWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
+		mainWindow.setOnCloseRequest(e -> {
+			if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "All work will be leave unsaved",
+					"Are you sure to quit?")) {
+				mainWindow.close();
+			} else {
+				e.consume();
+			}
+		});
 		mainWindow.setTitle("MeinRecipe - Edit page");
 		mainWindow.setScene(mainPage);
 	}
@@ -135,6 +143,14 @@ public class DisplayPageController {
 		Scene mainPage = new Scene(homePageScene);
 		Stage mainWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
+		mainWindow.setOnCloseRequest(e -> {
+			if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "",
+					"Are you sure to quit?")) {
+				mainWindow.close();
+			} else {
+				e.consume();
+			}
+		});
 		mainWindow.setTitle("MeinRecipe - Home page");
 		mainWindow.setScene(mainPage);
 	}
@@ -151,6 +167,14 @@ public class DisplayPageController {
 		Scene mainPage = new Scene(searchPageScene);
 		Stage mainWindow = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
+		mainWindow.setOnCloseRequest(e -> {
+			if (showAlert(Alert.AlertType.CONFIRMATION, "Warning", "",
+					"Are you sure to quit?")) {
+				mainWindow.close();
+			} else {
+				e.consume();
+			}
+		});
 		mainWindow.setTitle("MeinRecipe - Search page");
 		mainWindow.setScene(mainPage);
 	}
