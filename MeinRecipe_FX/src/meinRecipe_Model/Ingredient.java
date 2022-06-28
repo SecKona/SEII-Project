@@ -78,6 +78,6 @@ public class Ingredient {
 	 */
 	@Override
 	public String toString() {
-		return this.ingredientId + ". " + this.getQuantity() + this.getDescription();
+		return this.ingredientId + ". " + this.getQuantity() + " " + this.getDescription();
 	}
 }
