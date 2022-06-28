@@ -20,7 +20,7 @@
 #### Setup MySQL server
 * Choose a TCP/IP port (take the default port)
 * Choose a root password
-* Import the DB dump: If you want to set a database with our existing data, import DB dump (**"MeinRecipe_FX/DataBase/cookbook.sql"**) in MySQL Workbench (Server-->Data Import-->Import from Self-Contained File-->Start Import). A tutorial above:  
+* Import the DB dump: If you want to set a database with our existing data, import DB dump (**"MeinRecipe_FX/DataBase/cookbook.sql"**) in MySQL Workbench (Server-->Data Import-->Import from Self-Contained File-->Select default target schema-->Start Import). A tutorial above:  
 https://help.fasthosts.co.uk/app/answers/detail/a_id/2133/~/back-up-and-restore-mysql-databases-using-mysql-workbench-6
 * Apply Database model: If you want to set a database without any existing data, open DB model file (**"MeinRecipe_FX/DataBase/cookbook.mwb"**) in MySQL Workbench (File-->Open Model) and apply it to database (Database-->Forward engineering), keep clicking "Next" until finished
 
