@@ -26,6 +26,9 @@
                      <image>
                         <Image url="@../../image/chef5.jpg" />
                      </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
                   </ImageView>
                   <Label contentDisplay="CENTER" layoutX="24.0" layoutY="226.0" prefHeight="30.0" prefWidth="200.0" text="Search by name" textFill="#312e32">
                      <font>
@@ -93,6 +96,9 @@
                      <image>
                         <Image url="@../../image/vegetab.jpg" />
                      </image>
+                     <effect>
+                        <GaussianBlur radius="6.0" />
+                     </effect>
                   </ImageView>
                   <Text layoutX="38.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search for your desire!" textAlignment="CENTER" wrappingWidth="428.45703125" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="38.54296875" AnchorPane.topAnchor="14.05859375">
                      <fill>

@@ -46,6 +46,9 @@
                       <image>
                           <Image url="@../../image/infoBackground.jpg" />
                       </image>
+               <effect>
+                  <DropShadow />
+               </effect>
                   </ImageView>
             <Text layoutX="35.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Information of digital cookbook" textAlignment="CENTER" wrappingWidth="173.45703125">
                <fill>

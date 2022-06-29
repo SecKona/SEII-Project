@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
@@ -17,11 +18,17 @@
                <image>
                   <Image url="@../../image/HomePageBackground.jpg" />
                </image>
+               <effect>
+                  <GaussianBlur radius="6.0" />
+               </effect>
             </ImageView>
             <ImageView fitHeight="140.0" fitWidth="180.0" layoutX="292.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../image/chef5.jpg" />
                </image>
+               <effect>
+                  <DropShadow />
+               </effect>
             </ImageView>
             <Button alignment="CENTER" contentDisplay="CENTER" layoutX="285.0" layoutY="316.0" mnemonicParsing="false" onAction="#turnToSearchPage" prefHeight="47.0" prefWidth="193.0" style="-fx-border-color: #ffd700; -fx-background-radius: 100; -fx-border-radius: 100;" text="Start to Explore!" textAlignment="CENTER">
                <font>
