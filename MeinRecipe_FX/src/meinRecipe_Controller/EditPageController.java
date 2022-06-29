@@ -86,6 +86,7 @@ public class EditPageController {
 
 	private static Recipe editingRecipe;
 
+	@SuppressWarnings("resource")
 	@FXML
 	/**
 	 * Edit the editing recipe in this scene and open a fileChooser to choose recipe
@@ -102,7 +103,13 @@ public class EditPageController {
 		if (selectedImage != null) {
 			String storagePath = System.getProperty("user.dir") + "/src/recipeImage/" + selectedImage.getName();
 			FileOutputStream outputImage = new FileOutputStream(storagePath);
-			ImageIO.write(ImageIO.read(selectedImage), "png", outputImage);
+			if(ImageIO.read(selectedImage) != null) {
+				ImageIO.write(ImageIO.read(selectedImage), "png", outputImage);
+			}else {
+				showAlert(Alert.AlertType.ERROR, "Error", "Failed to storage recipe image",
+						"Recipe image is damaged!");
+				return;
+			}
 			outputImage.close();
 			editingRecipe.setImageURL("/recipeImage/" + selectedImage.getName());
 			try {
@@ -541,7 +548,7 @@ public class EditPageController {
 			TextFieldTableCell<Ingredient, Integer> cell = new TextFieldTableCell<Ingredient, Integer>(
 					new IntegerStringConverter());
 			cell.setOnKeyReleased(e -> {
-				if (!e.getText().matches("^[0-9]\\d*$")) {
+				if (!e.getText().matches("[0-9]?[\b]?")) {
 					showAlert(Alert.AlertType.ERROR, "Error", "Illegal input", "Please input a number!");
 					cell.cancelEdit();
 				}
