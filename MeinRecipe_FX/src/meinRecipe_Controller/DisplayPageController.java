@@ -18,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -57,6 +58,9 @@ public class DisplayPageController {
 
 	@FXML
 	private TextField serveNum;
+	
+	@FXML
+	private Button delete;
 
 	private static Recipe viewingRecipe;
 
@@ -184,6 +188,9 @@ public class DisplayPageController {
 	 * JavaFX scene initialize method, is called when setting scene
 	 */
 	public void initialize() {
+		if (viewingRecipe.getRecipeId() == null) {
+			this.delete.setDisable(true);
+		}
 		this.fillinRecipeView(viewingRecipe);
 	}
 
