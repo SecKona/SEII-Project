@@ -232,7 +232,7 @@
                               </LinearGradient>
                            </textFill>
                         </Label>
-                        <Button layoutX="57.0" layoutY="202.0" mnemonicParsing="false" onAction="#deleteRecipe" prefHeight="25.0" prefWidth="90.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: ffb700;" text="Delete" textAlignment="CENTER" textFill="#d30808">
+                        <Button fx:id="delete" layoutX="57.0" layoutY="202.0" mnemonicParsing="false" onAction="#deleteRecipe" prefHeight="25.0" prefWidth="90.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: ffb700;" text="Delete" textAlignment="CENTER" textFill="#d30808">
                            <font>
                               <Font name="Segoe Script Bold" size="16.0" />
                            </font>
