@@ -55,7 +55,7 @@ Input a serve number and click "Calculate" to calculate ingredient amount
 * Edit page  
 Table-like edit mode: Double click a table cell to edit, press "ENTER" on keyboard to commit edit
 
-## Maintianer
+## Maintainer
 @SecKona https://github.com/SecKona
 
 ## Contributing
